@@ -1,0 +1,331 @@
+@charset "UTF-8";
+/*
+Theme Name: PIBSI
+Theme URI: https://www.facebook.com/TheDaniel549
+Description: Tema desenvolvido exclusivamente para o site da PIB em Santa Izabel, São Gonçalo
+Author: Daniel Rios
+Author URI: https://www.facebook.com/TheDaniel549
+Version: 1.0
+*/
+
+$css4: true;
+$compatibility: false;
+
+//CSS universal variables
+
+@import 'config/config.scss';
+
+//Font imports and mixins/placeholders to prefix the required properties
+
+@import 'config/fonts.scss';
+@import 'config/functions.scss';
+
+//CSS variables to make the site responsive
+
+@import 'responsive/desktop.scss';
+@import 'responsive/tablet.scss';
+@import 'responsive/mobile.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    @include css4 {
+        background: var(--rootColor);
+    };
+
+    body {
+        box-sizing: border-box;
+        position: relative;
+        height: 100%;
+        margin: 0 auto;
+        font-size: 62.5%;
+        z-index: 100;
+
+        @include css4 {
+            background: var(--bodyColor);
+            width: var(--bodyWidth);
+        };
+
+        //Styles for all tags in the document 
+
+        li {
+            list-style: none;
+        }
+        a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+        }
+        button {
+            border: none;
+            outline: none;
+        }
+        label {
+            display: block;
+            cursor: pointer;
+        }
+
+        //Header style
+        
+        #cabecalho {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            z-index: 100;
+
+            #logo {
+                position: relative;
+                top: 0;
+                height: 100%;
+                font: 1.5em Calibri, sans-serif;
+                line-height: 100px;
+                overflow-y: hidden;
+
+                @include css4 {
+                    color: var(--darkGray);
+                };
+            }
+        }
+
+        //The menu is at Media Queries, because of it have a lot of differences. The mobile is the same as the table
+
+        //Body style
+
+        #containerLeft {
+            position: relative;
+            float: left;
+            width: 80%;
+            height: 100%;
+
+            @include css4 {
+                width: var(--contentWidth);
+            };
+            .contentDiv {
+                box-sizing: border-box;
+                position: relative;
+                height: 250px;
+                width: 100%;
+                margin-bottom: 10px;
+                padding: 10px;
+                
+                .thumbnail {
+                    position: relative;
+                    width: 150px;
+                    height: 150px;
+
+                    img {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .title {
+                    position: relative;
+                    height: 40px;
+
+                    .link {
+                        position: relative;
+                        height: 100%;
+                        width: 100%;
+                        font: 1em Calibri, sans-serif;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .sidebar {
+            box-sizing: border-box;
+            border-radius: 5px;
+            position: relative;
+            top: 20px;
+            right: 0;
+            float: right;
+            height: 250px;
+            
+            @include css4 {
+                border: 4px solid var(--darkGray);
+                width: var(--sidebarWidth);
+            };
+        }
+
+        //Footer style
+
+        #rodape {
+            box-sizing: border-box;
+            position: relative;
+            top: 20px;
+            min-height: 100px;
+            clear: both;
+            padding-top: 20px;
+            width: 100%;
+            margin: 0 auto;
+            z-index: 100;
+
+            @include css4 {
+                background: var(--bodyColor);
+                border-top: 1px solid var(--darkGray);
+            };
+            #socialMenu {
+                position: relative; 
+                min-height: 50px;
+                width: 100%;
+                
+                .menuUl {
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    text-align: center;
+                    display: flex;
+
+                    @include css4 {
+                        flex-direction: var(--socialMenuDirection);
+                        justify-content: var(--socialMenuPosition);
+                    };
+                    .facebook {
+                        a {
+                            &:hover {
+                                @include css4 {
+                                    background: var(--facebook);
+                                };
+                            }
+                            &:before {
+                                content: '\f09a';
+
+                                @include css4 {
+                                    color: var(--facebook);
+                                };
+                            }
+                        }
+                    }
+                    .twitter {
+                        a {
+                            &:hover {
+                                @include css4 {
+                                    background: var(--twitter);
+                                };
+                            }
+                            &:before {
+                                content: '\f099';
+                                
+                                @include css4 {
+                                    color: var(--twitter);
+                                };
+                            }
+                        }
+                    }
+                    .youtube {
+                        a {
+                            &:hover {
+                                @include css4 {
+                                    background: var(--youtube);
+                                };
+                            }
+                            &:before {
+                                content: '\f16a';
+
+                                @include css4 {
+                                    color: var(--youtube);
+                                };
+                            }
+                        }
+                    }
+                    .google {
+                        a {
+                            &:hover {
+                                @include css4 {
+                                    background: var(--google);
+                                };
+                            }
+                            &:before {
+                                content: '\f0d5';
+                                
+                                @include css4 {
+                                    color: var(--google);
+                                };
+                            }
+                        }
+                    }
+                    .menu-item {
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        height: 40px;
+                        min-width: 40px;
+                        text-decoration: none;
+
+                        @include css4 {
+                            margin: var(--socialMenuItems);
+                        };
+
+                        @include css4 {
+                            background: var(--gray);
+                        };
+                        a {
+                            box-sizing: border-box;
+                            border-radius: 5px;
+                            position: relative;
+                            font: 1.5em Calibri, sans-serif;
+                            line-height: 25px;
+                            margin-right: 10px;
+                            padding: 0 5px;
+
+                            @include css4 {
+                                color: var(--darkGray);
+                            }
+
+                            @include transition(all, 300ms, linear, 1ms);
+
+                            &:before {
+                                position: relative;
+                                top: 8px;
+                                font-family: FontAwesome;
+                                font-size: 2.2em;
+                                margin-right: 10px;
+                                
+                                @include transition(all, 300ms, linear, 1ms);
+                            }
+                            &:hover {
+                                &:before {
+                                    @include css4 {
+                                        color: var(--gray);
+                                    }
+                                }
+                            }
+                        }
+                    }	
+                }
+            }
+            .siteInfo {
+                top: 10px;
+                display: flex;
+
+                @include css4{
+                    justify-content: var(--copyPosition);
+                };
+                #spanInfo {
+                    font: 1.3em Calibri, sans-serif;
+                    
+                    @include css4 {
+                        color: var(--darkGray);
+                    };
+                    a {
+                        text-decoration: none;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                    }
+                }
+            }
+        }
+    }
+}

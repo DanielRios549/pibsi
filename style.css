@@ -1,0 +1,1019 @@
+@charset "UTF-8";
+/*
+Theme Name: PIBSI
+Theme URI: https://www.facebook.com/TheDaniel549
+Description: Tema desenvolvido exclusivamente para o site da PIB em Santa Izabel, São Gonçalo
+Author: Daniel Rios
+Author URI: https://www.facebook.com/TheDaniel549
+Version: 1.0
+*/
+:root {
+  --rootColor: #ffffff;
+  --bodyColor: #ffffff;
+  --darkGray: #464646;
+  --gray: #d6d6d6;
+  --blue: #2cafec;
+  --white: #f1f1f1;
+  --menu01: #7c6200;
+  --menu02: #cc3333;
+  --menu03: #4b7000;
+  --menu04: #2578cc;
+  --menu05: #32324a;
+  --socialDark: #303030;
+  --facebook: #5b79a8;
+  --twitter: #63b3ff;
+  --google: #d14837;
+  --youtube: #ee2b3b;
+}
+
+/*
+Only for compatible browsers:
+    background: var(--gray);
+    color: var(--white);
+For all Browser:
+    @include css4 {
+        background: var(--gray);
+        color: var(--white);
+    };
+*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("font/icons/fontAwesome.otf");
+}
+@font-face {
+  font-family: 'Arial';
+  src: url("font/arial.ttf");
+}
+@font-face {
+  font-family: 'Bubblegum';
+  src: url("font/bubblegum-sans-regular.otf");
+}
+@font-face {
+  font-family: 'Calibri';
+  src: url("font/calibri.ttf");
+}
+@font-face {
+  font-family: 'CalibriItatic';
+  src: url("font/calibrii.ttf");
+}
+@font-face {
+  font-family: 'Agency';
+  src: url("font/agencyb.ttf");
+}
+/* 
+ ***************************************************************
+ | Copyright (c) 2014-2015 Atomo.com. All rights reserved.
+ | @ Author	: Daniel Rios.
+ ****************************************************************
+*/
+@media only screen and (min-width: 61.5625em) {
+  :root {
+    --bodyWidth: 80%;
+    --contentWidth: 80%;
+    --sidebarWidth: 20%;
+    --socialMenuPosition: flex-start;
+    --copyPosition: flex-end;
+    --socialMenuDirection: row;
+    --socialMenuItems: 0 10px 0 0;
+  }
+
+  #toggleMenuInput {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+
+  #toggleMenu {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+
+  #menuContainer {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    z-index: 101;
+  }
+  #menuContainer .menu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  #menuContainer .menuFixed {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 40px;
+  }
+  #menuContainer #menu {
+    z-index: 101;
+    background: var(--bodyColor);
+  }
+  #menuContainer #menu #homeLink {
+    background: var(--gray);
+    -webkit-transition: all 200ms linear 0ms;
+    -moz-transition: all 200ms linear 0ms;
+    -ms-transition: all 200ms linear 0ms;
+    transition: all 200ms linear 0ms;
+  }
+  #menuContainer #menu #homeLink a:after {
+    color: var(--darkGray);
+    -webkit-transition: all 200ms linear 0ms;
+    -moz-transition: all 200ms linear 0ms;
+    -ms-transition: all 200ms linear 0ms;
+    transition: all 200ms linear 0ms;
+  }
+  #menuContainer #menu #homeLink:hover {
+    background: var(--darkGray);
+  }
+  #menuContainer #menu #homeLink:hover a:after {
+    color: var(--white);
+  }
+  #menuContainer #menu #homeLinkActive {
+    background: var(--darkGray);
+  }
+  #menuContainer #menu #homeLinkActive a:after {
+    color: var(--white);
+  }
+  #menuContainer #menu #homeLink,
+  #menuContainer #menu #homeLinkActive {
+    position: relative;
+    border-radius: 3px;
+    float: left;
+    margin-left: 20px;
+    height: 100%;
+    vertical-align: baseline;
+    width: 60px;
+  }
+  #menuContainer #menu #homeLink a,
+  #menuContainer #menu #homeLinkActive a {
+    box-sizing: border-box;
+    font: 1.5em Calibri, sans-serif;
+    text-decoration: none;
+    line-height: 40px;
+    position: relative;
+    padding: 0 10px 0 5px;
+  }
+  #menuContainer #menu #homeLink a:after,
+  #menuContainer #menu #homeLinkActive a:after {
+    content: '\f015';
+    font: 1.8em FontAwesome;
+    position: absolute;
+    top: 6px;
+    left: 18px;
+  }
+  #menuContainer #menu .menuUl {
+    box-sizing: border-box;
+    position: relative;
+    width: calc(100% - 80px);
+    width: 100%;
+    height: 100%;
+    margin-left: 80px;
+  }
+  #menuContainer #menu .menuUl > .menu-item {
+    border-radius: 3px;
+    float: left;
+    margin-left: 20px;
+    height: 100%;
+    list-style: none;
+    background: var(--gray);
+    -webkit-transition: all 200ms linear 0ms;
+    -moz-transition: all 200ms linear 0ms;
+    -ms-transition: all 200ms linear 0ms;
+    transition: all 200ms linear 0ms;
+  }
+  #menuContainer #menu .menuUl > .menu-item > a {
+    box-sizing: border-box;
+    display: block;
+    font: 1.5em Calibri, sans-serif;
+    text-decoration: none;
+    line-height: 40px;
+    position: relative;
+    padding: 0 20px 0 20px;
+    color: var(--darkGray);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(1):hover {
+    background: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(1):hover > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(1):hover > .sub-menu {
+    background: var(--menu01) !important;
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(2):hover {
+    background: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(2):hover > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(2):hover > .sub-menu {
+    background: var(--menu02) !important;
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(3):hover {
+    background: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(3):hover > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(3):hover > .sub-menu {
+    background: var(--menu03) !important;
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(4):hover {
+    background: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(4):hover > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(4):hover > .sub-menu {
+    background: var(--menu04) !important;
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(5):hover {
+    background: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(5):hover > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(5):hover > .sub-menu {
+    background: var(--menu04) !important;
+  }
+  #menuContainer #menu .menuUl > .menu-item:hover > .sub-menu {
+    height: 200px;
+    padding: 10px 0;
+  }
+  #menuContainer #menu .menuUl > .menu-item:hover > .sub-menu > .menu-item {
+    top: 0;
+  }
+  #menuContainer #menu .menuUl > .menu-item .openSubMenuInput,
+  #menuContainer #menu .menuUl > .menu-item .openSubMenu {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1),
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1) {
+    background: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1) > a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1) > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1) > .sub-menu,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1) > .sub-menu {
+    background: var(--menu01) !important;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2),
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2) {
+    background: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2) > a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2) > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2) > .sub-menu,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2) > .sub-menu {
+    background: var(--menu02) !important;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3),
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3) {
+    background: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3) > a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3) > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3) > .sub-menu,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3) > .sub-menu {
+    background: var(--menu03) !important;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4),
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4) {
+    background: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4) > a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4) > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4) > .sub-menu,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4) > .sub-menu {
+    background: var(--menu04) !important;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5),
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5) {
+    background: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5) > a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5) > a {
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5) > .sub-menu,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5) > .sub-menu {
+    background: var(--menu05) !important;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > a {
+    padding-right: calc(20px + 1.8em);
+    -webkit-transition: all 200ms linear 0ms;
+    -moz-transition: all 200ms linear 0ms;
+    -ms-transition: all 200ms linear 0ms;
+    transition: all 200ms linear 0ms;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > a:after {
+    content: '\f0dd';
+    font: 1.8em FontAwesome;
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    opacity: 0.5;
+    color: var(--darkGray);
+    -webkit-transition: all 200ms linear 0ms;
+    -moz-transition: all 200ms linear 0ms;
+    -ms-transition: all 200ms linear 0ms;
+    transition: all 200ms linear 0ms;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu {
+    box-sizing: border-box;
+    position: absolute;
+    left: -80px;
+    height: 0;
+    width: calc(100% + 80px);
+    overflow: hidden;
+    -webkit-transition: all 200ms linear 200ms;
+    -moz-transition: all 200ms linear 200ms;
+    -ms-transition: all 200ms linear 200ms;
+    transition: all 200ms linear 200ms;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item {
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    top: -20px;
+    height: 100%;
+    width: 33.33%;
+    padding: 0 40px;
+    border-right: 2px solid var(--darkGray);
+    -webkit-transition: all 200ms linear 200ms;
+    -moz-transition: all 200ms linear 200ms;
+    -ms-transition: all 200ms linear 200ms;
+    transition: all 200ms linear 200ms;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item:nth-of-type(3) {
+    border: none;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item > a {
+    line-height: 30px;
+    padding: 0;
+    height: 30px;
+    box-sizing: border-box;
+    font: 2.3em CalibriItatic, sans-serif;
+    text-decoration: none;
+    line-height: 40px;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item > a:hover {
+    text-decoration: none;
+    cursor: default;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item:before {
+    content: '>';
+    font: 1em Calibri, sans-serif;
+    position: relative;
+    top: 3px;
+    float: left;
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > a {
+    font: 1.5em Calibri, sans-serif;
+    text-decoration: none;
+    position: relative;
+    width: 100%;
+    text-indent: 5px;
+    color: var(--white);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > a:hover {
+    text-decoration: underline;
+  }
+}
+@media only screen and (max-width: 61.5624em) {
+  #toggleMenuInput {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+  #toggleMenuInput:checked {
+    position: relative;
+    height: 42px;
+    width: 40px;
+    display: block;
+    z-index: 101;
+  }
+  #toggleMenuInput:checked ~ #wpadminbar {
+    z-index: 99;
+  }
+  #toggleMenuInput:checked + #toggleMenu {
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    float: right;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 101;
+    cursor: default;
+  }
+  #toggleMenuInput:checked ~ #menuContainer {
+    -webkit-transform: translate3d(310px, 0, 0);
+    -moz-transform: translate3d(310px, 0, 0);
+    -ms-transform: translate3d(310px, 0, 0);
+    transform: translate3d(310px, 0, 0);
+  }
+
+  #toggleMenu {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background: var(--bodyColor);
+    -webkit-transition: background 200ms linear 0ms;
+    -moz-transition: background 200ms linear 0ms;
+    -ms-transition: background 200ms linear 0ms;
+    transition: background 200ms linear 0ms;
+  }
+  #toggleMenu:after {
+    content: '\f0c9';
+    font: 4em FontAwesome;
+    position: absolute;
+    left: 3px;
+    color: var(--darkGray);
+  }
+
+  #menuContainer {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: -310px;
+    width: 300px;
+    height: 100%;
+    z-index: 102;
+    background: var(--bodyColor);
+    -webkit-transition: transform 200ms linear 0ms;
+    -moz-transition: transform 200ms linear 0ms;
+    -ms-transition: transform 200ms linear 0ms;
+    transition: transform 200ms linear 0ms;
+  }
+  #menuContainer #menu {
+    position: relative;
+    top: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+  }
+  #menuContainer #menu #homeLinkActive:before {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 2px;
+    height: 40px;
+    display: block;
+    z-index: 100;
+    background: var(--darkGray);
+  }
+  #menuContainer #menu #homeLinkActive:after {
+    content: '';
+    border-style: solid;
+    border-width: 10px 0 10px 10px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    border-color: transparent transparent transparent var(--darkGray);
+  }
+  #menuContainer #menu #homeLink,
+  #menuContainer #menu #homeLinkActive {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    display: block;
+  }
+  #menuContainer #menu #homeLink a:hover:after, #menuContainer #menu #homeLink a:active:after,
+  #menuContainer #menu #homeLinkActive a:hover:after,
+  #menuContainer #menu #homeLinkActive a:active:after {
+    color: var(--blue);
+  }
+  #menuContainer #menu #homeLink a:after,
+  #menuContainer #menu #homeLinkActive a:after {
+    content: 'Página Inicial';
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    font: 2em Calibri, sans-serif;
+    color: var(--darkGray);
+  }
+  #menuContainer #menu .menuUl {
+    position: relative;
+    overflow-x: hidden;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:before {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 2px;
+    height: 40px;
+    display: block;
+    z-index: 100;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:after {
+    content: '';
+    border-style: solid;
+    border-width: 10px 0 10px 10px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1) a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1) a {
+    color: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1):before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1):before {
+    background: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1):after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1):after {
+    border-color: transparent transparent transparent var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1) .openSubMenu:before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1) .openSubMenu:before {
+    background: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(1) .openSubMenu:after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1) .openSubMenu:after {
+    color: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2) a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2) a {
+    color: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2):before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2):before {
+    background: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2):after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2):after {
+    border-color: transparent transparent transparent var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2) .openSubMenu:before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2) .openSubMenu:before {
+    background: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(2) .openSubMenu:after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(2) .openSubMenu:after {
+    color: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3) a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3) a {
+    color: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3):before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3):before {
+    background: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3):after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3):after {
+    border-color: transparent transparent transparent var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3) .openSubMenu:before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3) .openSubMenu:before {
+    background: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(3) .openSubMenu:after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(3) .openSubMenu:after {
+    color: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4) a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4) a {
+    color: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4):before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4):before {
+    background: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4):after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4):after {
+    border-color: transparent transparent transparent var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4) > .openSubMenu:before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4) > .openSubMenu:before {
+    background: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(4) > .openSubMenu:after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(4) > .openSubMenu:after {
+    color: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5) a,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5) a {
+    color: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5):before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5):before {
+    background: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5):after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5):after {
+    border-color: transparent transparent transparent var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5) > .openSubMenu:before,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5) > .openSubMenu:before {
+    background: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .current-menu-item:nth-child(5) > .openSubMenu:after,
+  #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5) > .openSubMenu:after {
+    color: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(1) a:hover, #menuContainer #menu .menuUl > .menu-item:nth-child(1) a:active {
+    color: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(1) .openSubMenu:hover:before, #menuContainer #menu .menuUl > .menu-item:nth-child(1) .openSubMenu:active:before {
+    background: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(1) .openSubMenu:hover:after, #menuContainer #menu .menuUl > .menu-item:nth-child(1) .openSubMenu:active:after {
+    color: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(2) a:hover, #menuContainer #menu .menuUl > .menu-item:nth-child(2) a:active {
+    color: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(2) .openSubMenu:hover:before, #menuContainer #menu .menuUl > .menu-item:nth-child(2) .openSubMenu:active:before {
+    background: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(2) .openSubMenu:hover:after, #menuContainer #menu .menuUl > .menu-item:nth-child(2) .openSubMenu:active:after {
+    color: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(3) a:hover, #menuContainer #menu .menuUl > .menu-item:nth-child(3) a:active {
+    color: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(3) .openSubMenu:hover:before, #menuContainer #menu .menuUl > .menu-item:nth-child(3) .openSubMenu:active:before {
+    background: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(3) .openSubMenu:hover:after, #menuContainer #menu .menuUl > .menu-item:nth-child(3) .openSubMenu:active:after {
+    color: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(4) a:hover, #menuContainer #menu .menuUl > .menu-item:nth-child(4) a:active {
+    color: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(4) .openSubMenu:hover:before, #menuContainer #menu .menuUl > .menu-item:nth-child(4) .openSubMenu:active:before {
+    background: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(4) .openSubMenu:hover:after, #menuContainer #menu .menuUl > .menu-item:nth-child(4) .openSubMenu:active:after {
+    color: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(5) a:hover, #menuContainer #menu .menuUl > .menu-item:nth-child(5) a:active {
+    color: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(5) .openSubMenu:hover:before, #menuContainer #menu .menuUl > .menu-item:nth-child(5) .openSubMenu:active:before {
+    background: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .menu-item:nth-child(5) .openSubMenu:hover:after, #menuContainer #menu .menuUl > .menu-item:nth-child(5) .openSubMenu:active:after {
+    color: var(--menu05);
+  }
+  #menuContainer #menu .menuUl .menu-item {
+    position: relative;
+    margin-top: 2px;
+  }
+  #menuContainer #menu .menuUl .menu-item a {
+    position: relative;
+    height: 60px;
+    font: 2em Calibri, sans-serif;
+    line-height: 60px;
+    text-indent: 15px;
+    display: block;
+    background: var(--bodyColor);
+    color: var(--darkGray);
+    -webkit-transition: color 200ms linear 1ms;
+    -moz-transition: color 200ms linear 1ms;
+    -ms-transition: color 200ms linear 1ms;
+    transition: color 200ms linear 1ms;
+  }
+  #menuContainer #menu .menuUl .menu-item:not(.menu-item-has-children) a {
+    width: 100%;
+    height: 60px;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children:nth-child(1) .sub-menu:before {
+    background: var(--menu01);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children:nth-child(2) .sub-menu:before {
+    background: var(--menu02);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children:nth-child(3) .sub-menu:before {
+    background: var(--menu03);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children:nth-child(4) .sub-menu:before {
+    background: var(--menu04);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children:nth-child(5) .sub-menu:before {
+    background: var(--menu05);
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children .sub-menu:before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    height: 100%;
+    width: 2px;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children a {
+    width: calc(100% - 60px);
+    min-height: 60px !important;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .openSubMenuInput {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .openSubMenuInput:checked + .openSubMenu:after {
+    content: '\f077';
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .openSubMenuInput:checked ~ .sub-menu {
+    max-height: 500px;
+    -webkit-transition: max-height 400ms cubic-bezier(1, 1, 1, 1) 1ms;
+    -moz-transition: max-height 400ms cubic-bezier(1, 1, 1, 1) 1ms;
+    -ms-transition: max-height 400ms cubic-bezier(1, 1, 1, 1) 1ms;
+    transition: max-height 400ms cubic-bezier(1, 1, 1, 1) 1ms;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .openSubMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 55px;
+    z-index: 102;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .openSubMenu:before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -5px;
+    width: 2px;
+    height: 55%;
+    display: block;
+    background: var(--darkGray);
+    -webkit-transition: background 200ms linear 1ms;
+    -moz-transition: background 200ms linear 1ms;
+    -ms-transition: background 200ms linear 1ms;
+    transition: background 200ms linear 1ms;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .openSubMenu:after {
+    content: '\f078';
+    font: 5em FontAwesome;
+    color: var(--darkGray);
+    -webkit-transition: color 200ms linear 1ms;
+    -moz-transition: color 200ms linear 1ms;
+    -ms-transition: color 200ms linear 1ms;
+    transition: color 200ms linear 1ms;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .sub-menu {
+    position: relative;
+    max-height: 0px;
+    overflow: hidden;
+    -webkit-transition: max-height 400ms ease-out 1ms;
+    -moz-transition: max-height 400ms ease-out 1ms;
+    -ms-transition: max-height 400ms ease-out 1ms;
+    transition: max-height 400ms ease-out 1ms;
+  }
+  #menuContainer #menu .menuUl .menu-item-has-children .sub-menu .menu-item {
+    margin-left: 20px;
+  }
+}
+@media only screen and (min-width: 48.9374em) and (max-width: 61.5624em) {
+  :root {
+    --bodyWidth: 80%;
+    --contentWidth: 100%;
+    --sidebarWidth: 100%;
+    --socialMenuPosition: center;
+    --copyPosition: center;
+    --socialMenuDirection: row;
+    --socialMenuItems: 0 10px 0 0;
+  }
+}
+@media only screen and (max-width: 48.9374em) {
+  :root {
+    --bodyWidth: 100%;
+    --contentWidth: 100%;
+    --sidebarWidth: 100%;
+    --socialMenuPosition: center;
+    --copyPosition: center;
+    --socialMenuDirection: column;
+    --socialMenuItems: 0 0 10px 0;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--rootColor);
+}
+html body {
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 62.5%;
+  z-index: 100;
+  background: var(--bodyColor);
+  width: var(--bodyWidth);
+}
+html body li {
+  list-style: none;
+}
+html body a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+html body button {
+  border: none;
+  outline: none;
+}
+html body label {
+  display: block;
+  cursor: pointer;
+}
+html body #cabecalho {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+}
+html body #cabecalho #logo {
+  position: relative;
+  top: 0;
+  height: 100%;
+  font: 1.5em Calibri, sans-serif;
+  line-height: 100px;
+  overflow-y: hidden;
+  color: var(--darkGray);
+}
+html body #containerLeft {
+  position: relative;
+  float: left;
+  width: 80%;
+  height: 100%;
+  width: var(--contentWidth);
+}
+html body #containerLeft .contentDiv {
+  box-sizing: border-box;
+  position: relative;
+  height: 250px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+html body #containerLeft .contentDiv .thumbnail {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+html body #containerLeft .contentDiv .thumbnail img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+html body #containerLeft .contentDiv .title {
+  position: relative;
+  height: 40px;
+}
+html body #containerLeft .contentDiv .title .link {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font: 1em Calibri, sans-serif;
+  color: var(--darkGray);
+}
+html body #containerLeft .contentDiv .title .link:hover {
+  text-decoration: underline;
+}
+html body .sidebar {
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
+  top: 20px;
+  right: 0;
+  float: right;
+  height: 250px;
+  border: 4px solid var(--darkGray);
+  width: var(--sidebarWidth);
+}
+html body #rodape {
+  box-sizing: border-box;
+  position: relative;
+  top: 20px;
+  min-height: 100px;
+  clear: both;
+  padding-top: 20px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 100;
+  background: var(--bodyColor);
+  border-top: 1px solid var(--darkGray);
+}
+html body #rodape #socialMenu {
+  position: relative;
+  min-height: 50px;
+  width: 100%;
+}
+html body #rodape #socialMenu .menuUl {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: var(--socialMenuDirection);
+  justify-content: var(--socialMenuPosition);
+}
+html body #rodape #socialMenu .menuUl .facebook a:hover {
+  background: var(--facebook);
+}
+html body #rodape #socialMenu .menuUl .facebook a:before {
+  content: '\f09a';
+  color: var(--facebook);
+}
+html body #rodape #socialMenu .menuUl .twitter a:hover {
+  background: var(--twitter);
+}
+html body #rodape #socialMenu .menuUl .twitter a:before {
+  content: '\f099';
+  color: var(--twitter);
+}
+html body #rodape #socialMenu .menuUl .youtube a:hover {
+  background: var(--youtube);
+}
+html body #rodape #socialMenu .menuUl .youtube a:before {
+  content: '\f16a';
+  color: var(--youtube);
+}
+html body #rodape #socialMenu .menuUl .google a:hover {
+  background: var(--google);
+}
+html body #rodape #socialMenu .menuUl .google a:before {
+  content: '\f0d5';
+  color: var(--google);
+}
+html body #rodape #socialMenu .menuUl .menu-item {
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 40px;
+  min-width: 40px;
+  text-decoration: none;
+  margin: var(--socialMenuItems);
+  background: var(--gray);
+}
+html body #rodape #socialMenu .menuUl .menu-item a {
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
+  font: 1.5em Calibri, sans-serif;
+  line-height: 25px;
+  margin-right: 10px;
+  padding: 0 5px;
+  color: var(--darkGray);
+  -webkit-transition: all 300ms linear 1ms;
+  -moz-transition: all 300ms linear 1ms;
+  -ms-transition: all 300ms linear 1ms;
+  transition: all 300ms linear 1ms;
+}
+html body #rodape #socialMenu .menuUl .menu-item a:before {
+  position: relative;
+  top: 8px;
+  font-family: FontAwesome;
+  font-size: 2.2em;
+  margin-right: 10px;
+  -webkit-transition: all 300ms linear 1ms;
+  -moz-transition: all 300ms linear 1ms;
+  -ms-transition: all 300ms linear 1ms;
+  transition: all 300ms linear 1ms;
+}
+html body #rodape #socialMenu .menuUl .menu-item a:hover:before {
+  color: var(--gray);
+}
+html body #rodape .siteInfo {
+  top: 10px;
+  display: flex;
+  justify-content: var(--copyPosition);
+}
+html body #rodape .siteInfo #spanInfo {
+  font: 1.3em Calibri, sans-serif;
+  color: var(--darkGray);
+}
+html body #rodape .siteInfo #spanInfo a {
+  text-decoration: none;
+  color: var(--darkGray);
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,442 @@
+//Desktop vars
+
+$responsiveVariables: (
+    --bodyWidth: 80%,
+    --contentWidth: 80%,
+    --sidebarWidth: 20%,
+    --socialMenuPosition: flex-start,
+    --copyPosition: flex-end,
+    --socialMenuDirection: row,
+    --socialMenuItems: 0 10px 0 0
+);
+
+@media only screen and (min-width: $desktop) {
+    @if($css4 == true) {
+        :root {
+            @each $variable, $value in $responsiveVariables {
+                #{$variable}: $value;
+            }
+        }
+    }
+    #toggleMenuInput {
+        position: absolute;
+        top: -100%;
+        left: -100%;
+    }
+    #toggleMenu {
+        position: absolute;
+        top: -100%;
+        left: -100%;
+    }
+    #menuContainer {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        z-index: 101;
+
+        .menu {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .menuFixed {
+            box-shadow: 0px 1px 1px rgba(0,0,0,.5);
+            position: fixed;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 40px;
+        }
+        #menu {
+            z-index: 101;
+            
+            @include css4 {
+                background: var(--bodyColor);
+            };
+            #homeLink {
+                @include css4 {
+                    background: var(--gray);
+                };
+
+                @include transition(all, 200ms, linear, 0ms);
+
+                a {
+                    &:after {
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+
+                        @include transition(all, 200ms, linear, 0ms);
+                    }
+                }
+                &:hover {
+                    @include css4 {
+                        background: var(--darkGray);
+                    };
+                    a {
+                        &:after {
+                            @include css4 {
+                                color: var(--white);
+                            };
+                        }
+                    }
+                }
+            }
+            #homeLinkActive {
+                @include css4 {
+                    background: var(--darkGray);
+                };
+                a {
+                    &:after {
+                        @include css4 {
+                            color: var(--white);
+                        };
+                    }
+                }
+            }
+            #homeLink,
+            #homeLinkActive {
+                position: relative;
+                border-radius: 3px;
+                float: left;
+                margin-left: 20px;
+                height: 100%;
+                vertical-align: baseline;
+                width: 60px;
+
+                a {
+                    box-sizing: border-box;
+                    font: 1.5em Calibri, sans-serif;
+                    text-decoration: none;
+                    line-height: 40px;
+                    position: relative;
+                    padding: 0 10px 0 5px;
+
+                    &:after {
+                        content: '\f015';
+                        font: 1.8em FontAwesome;
+                        position: absolute;
+                        top: 6px;
+                        left: 18px;
+                    }
+                }
+            }
+            .menuUl {
+                box-sizing: border-box;
+                position: relative;
+                width: calc(100% - 80px);
+                width: 100%;
+                height: 100%;
+                margin-left: 80px;
+
+                > .menu-item {
+                    border-radius: 3px;
+                    float: left;
+                    margin-left: 20px;
+                    height: 100%;
+                    list-style: none;
+
+                    @include css4 {
+                        background: var(--gray);
+                    };
+
+                    @include transition(all, 200ms, linear, 0ms);
+                    
+                    > a {
+                        box-sizing: border-box;
+                        display: block;
+                        font: 1.5em Calibri, sans-serif;
+                        text-decoration: none;
+                        line-height: 40px;
+                        position: relative;
+                        padding: 0 20px 0 20px;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                    }
+                    &:nth-child(1) {
+                        &:hover {
+                            @include css4 {
+                                background: var(--menu01);
+                            };
+                            > a {
+                                @include css4 {
+                                    color: var(--white);
+                                };
+                            }
+                            > .sub-menu {
+                                @include css4 {
+                                    background: var(--menu01) !important;
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        &:hover {
+                            @include css4 {
+                                background: var(--menu02);
+                            };
+                            > a {
+                                @include css4 {
+                                    color: var(--white);
+                                };
+                            }
+                            > .sub-menu {
+                                @include css4 {
+                                    background: var(--menu02) !important;
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(3) {
+                        &:hover {
+                            @include css4 {
+                                background: var(--menu03);
+                            };
+                            > a {
+                                @include css4 {
+                                    color: var(--white);
+                                };
+                            }
+                            > .sub-menu {
+                                @include css4 {
+                                    background: var(--menu03) !important;
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(4) {
+                        &:hover {
+                            @include css4 {
+                                background: var(--menu04);
+                            };
+                            > a {
+                                @include css4 {
+                                    color: var(--white);
+                                };
+                            }
+                            > .sub-menu {
+                                @include css4 {
+                                    background: var(--menu04) !important;
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(5) {
+                        &:hover {
+                            @include css4 {
+                                background: var(--menu05);
+                            };
+
+                            > a {
+                                @include css4 {
+                                    color: var(--white);
+                                };
+                            }
+                            > .sub-menu {
+                                @include css4 {
+                                    background: var(--menu04) !important;
+                                };
+                            }
+                        }
+                    }
+                    &:hover {
+                        > .sub-menu {
+                            height: 200px;
+                            padding: 10px 0;
+
+                            > .menu-item {
+                                top: 0;
+                            }
+                        }
+                    }
+                    .openSubMenuInput,
+                    .openSubMenu {
+                        position: absolute;
+                        top: -100%;
+                        left: -100%;
+                    }
+                }
+                > .current-menu-item,
+                > .current-menu-ancestor {
+                    &:nth-child(1) {
+                        @include css4 {
+                            background: var(--menu01);
+                        };
+                        > a {
+                            @include css4 {
+                                color: var(--white);
+                            };
+                        }
+                        > .sub-menu {
+                            @include css4 {
+                                background: var(--menu01) !important;
+                            };
+                        }
+                    }
+                    &:nth-child(2) {
+                        @include css4 {
+                            background: var(--menu02);
+                        };
+                        > a {
+                            @include css4 {
+                                color: var(--white);
+                            };
+                        }
+                        > .sub-menu {
+                            @include css4 {
+                                background: var(--menu02) !important;
+                            };
+                        }
+                    }
+                    &:nth-child(3) {
+                        @include css4 {
+                            background: var(--menu03);
+                        };
+                        > a {
+                            @include css4 {
+                                color: var(--white);
+                            };
+                        }
+                        > .sub-menu {
+                            @include css4 {
+                                background: var(--menu03) !important;
+                            };
+                        }
+                    }
+                    &:nth-child(4) {
+                        @include css4 {
+                            background: var(--menu04);
+                        };
+                        > a {
+                            @include css4 {
+                                color: var(--white);
+                            };
+                        }
+                        > .sub-menu {
+                            @include css4 {
+                                background: var(--menu04) !important;
+                            };
+                        }
+                    }
+                    &:nth-child(5) {
+                        @include css4 {
+                            background: var(--menu05);
+                        };
+                        > a {
+                            @include css4 {
+                                color: var(--white);
+                            };
+                        }
+                        > .sub-menu {
+                            @include css4 {
+                                background: var(--menu05) !important;
+                            };
+                        }
+                    }
+                }
+                > .menu-item-has-children {
+                    > a {
+                        padding-right: calc(20px + 1.8em);
+
+                        @include transition(all, 200ms, linear, 0ms);
+
+                        &:after {
+                            content: '\f0dd';
+                            font: 1.8em FontAwesome;
+                            position: absolute;
+                            top: 3px;
+                            right: 20px;
+                            opacity: 0.5;
+
+                            @include css4 {
+                                color: var(--darkGray);
+                            };
+
+                            @include transition(all, 200ms, linear, 0ms);
+                        }
+                    }
+                    > .sub-menu {
+                        box-sizing: border-box;
+                        position: absolute;
+                        left: -80px;
+                        height: 0;
+                        width: calc(100% + 80px);
+                        overflow: hidden;
+
+                        @include transition(all, 200ms, linear, 200ms);
+
+                        > .menu-item {
+                            box-sizing: border-box;
+                            position: relative;
+                            float: left;
+                            top: -20px;
+                            height: 100%;
+                            width: 33.33%;
+                            padding: 0 40px;
+
+                            @include css4 {
+                                border-right: 2px solid var(--darkGray);
+                            };
+
+                            @include transition(all, 200ms, linear, 200ms);
+
+                            &:nth-of-type(3) {
+                                border: none;
+                            }
+                            > a {
+                                line-height: 30px;
+                                padding: 0;
+                                height: 30px;
+                                box-sizing: border-box;
+                                font: 2.3em CalibriItatic, sans-serif;
+                                text-decoration: none;
+                                line-height: 40px;
+                                margin-bottom: 10px;
+
+                                @include css4 {
+                                    color: var(--white);
+                                };
+
+                                &:hover {
+                                    text-decoration: none;
+                                    cursor: default;
+                                }
+                            }
+                            > .sub-menu {
+                                > .menu-item {
+                                    &:before {
+                                        content: '>';
+                                        font: 1em Calibri, sans-serif;
+                                        position: relative;
+                                        top: 3px;
+                                        float: left;
+
+                                        @include css4 {
+                                            color: var(--white);
+                                        };
+                                    }
+                                    > a {
+                                        font: 1.5em Calibri, sans-serif;
+                                        text-decoration: none;
+                                        position: relative;
+                                        width: 100%;
+                                        text-indent: 5px;
+
+                                        @include css4 {
+                                            color: var(--white);
+                                        };
+                                        &:hover {
+                                            text-decoration: underline;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

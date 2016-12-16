@@ -1,0 +1,23 @@
+//Mobile vars
+
+$responsiveVariables: (
+    --bodyWidth: 100%,
+    --contentWidth: 100%,
+    --sidebarWidth: 100%,
+    --socialMenuPosition: center,
+    --copyPosition: center,
+    --socialMenuDirection: column,
+    --socialMenuItems: 0 0 10px 0
+);
+
+//Menu is already defined at tablet file
+
+@media only screen and (max-width: $mobile) {
+    @if($css4 == true) {
+        :root {
+            @each $variable, $value in $responsiveVariables {
+                #{$variable}: $value;
+            }
+        }
+    }
+}

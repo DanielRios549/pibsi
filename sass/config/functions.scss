@@ -1,0 +1,649 @@
+﻿/* 
+ ***************************************************************
+ | Copyright (c) 2014-2015 Atomo.com. All rights reserved.
+ | @ Author	: Daniel Rios.
+ ****************************************************************
+*/
+
+//Mixins to prefix
+
+@mixin transition($t1, $t2, $t3, $t4) {
+	//element, duration, type
+
+	-webkit-transition: $t1 $t2 $t3 $t4;
+	-moz-transition: $t1 $t2 $t3 $t4;
+	-ms-transition: $t1 $t2 $t3 $t4;
+	transition: $t1 $t2 $t3 $t4;
+}
+
+@mixin transform($t1) {
+	//scale, rotate, translate3d, translateZ,translateX, etc...
+
+	-webkit-transform: $t1;
+	-moz-transform: $t1;
+	-ms-transform: $t1;
+	transform: $t1;
+}
+
+@mixin animation($t1, $t2, $t3, $t4, $t5) {
+	//name, duration, timing-function, iteration-count, direction
+
+	-webkit-animation: $t1 $t2 $t3 $t4 $t5;
+	-moz-animation: $t1 $t2 $t3 $t4 $t5;
+	-ms-animation: $t1 $t2 $t3 $t4 $t5;
+	animation: $t1 $t2 $t3 $t4 $t5;
+}
+
+@mixin flex() {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+    //Default values
+
+    display: flex; //inline-flex
+    flex-direction: row; //row-reverse, column, column-reverse
+    flex-wrap: nowrap; //wrap, wrap-reverse
+    flex-flow: row nowrap; //shorthand for direction and wrap
+    justify-content: flex-start; //flex-end, center, space-between, space-around
+    align-items: stretch; //flex-end, center, baseline
+    align-content: flex-start; //flex-end, center, space-between, space-around, stretch
+
+    //Only for flex items
+
+    order: 1; //Just a number to appear on render
+    align-self: flex-start; //All align-items values
+    flex: 0 1 auto; //shorthand for grow, shrink and basis
+    flex-grow: 0; //1+
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+//Placeholder to make the code clean, note that it needs of CSS variables to being responsive
+
+@mixin mobileMenu {
+	#toggleMenuInput {
+        position: absolute;
+        top: -100%;
+        left: -100%;
+
+        &:checked {
+            position: relative;
+            height: 42px;
+            width: 40px;
+            display: block;
+            z-index: 101;
+
+            ~ #wpadminbar {
+                z-index: 99;
+            }
+            + #toggleMenu {
+                border: none;
+                background: rgba(0,0,0,.6);
+                position: fixed;
+                float: right;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: 101;
+                cursor: default;
+            }
+            ~ #menuContainer {
+                @include transform(translate3d(310px, 0, 0));
+            }
+        }
+    }
+    #toggleMenu {
+        position: relative;
+        height: 40px;
+        width: 40px;
+
+        @include css4 {
+            background: var(--bodyColor);
+        };
+
+        @include transition(background, 200ms, linear, 0ms);
+
+        &:after {
+            content: '\f0c9';
+            font: 4em FontAwesome;
+            position: absolute;
+            left: 3px;
+
+            @include css4 {
+                color: var(--darkGray);
+            };
+        }
+    }
+    #menuContainer {
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: -310px;
+        width: 300px;
+        height: 100%;
+        z-index: 102;
+
+        @include css4 {
+            background: var(--bodyColor);
+        };
+
+        @include transition(transform, 200ms, linear, 0ms);
+
+        #menu {
+            position: relative;
+            top: 0 !important;
+            width: 100%;
+            height: 100%;
+			overflow-x: auto;
+
+            #homeLinkActive {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 11px;
+                    left: 0;
+                    width: 2px;
+                    height: 40px;
+                    display: block;
+                    z-index: 100;
+
+                    @include css4 {
+                        background: var(--darkGray);
+                    };
+                }
+                &:after {
+                    content: '';
+                    border-style: solid;
+                    border-width: 10px 0 10px 10px;
+                    position: absolute;
+                    left: 0;
+                    top: 20px;
+
+                    @include css4 {
+                        border-color: transparent transparent transparent var(--darkGray) ;
+                    };
+                }
+            }
+            #homeLink,
+            #homeLinkActive {
+                position: relative;
+                height: 60px;
+                width: 100%;
+                display: block;
+
+                a {
+                    &:hover,
+                    &:active {
+                        &:after {
+                            @include css4 {
+                                color: var(--blue);
+                            };
+                        }
+                    }
+                    &:after {
+                        content: 'Página Inicial';
+                        position: absolute;
+                        top: 20px;
+                        left: 15px;
+                        font: 2em Calibri, sans-serif;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                    }
+                }
+            }
+            .menuUl {
+                position: relative;
+                overflow-x: hidden;
+
+                > .current-menu-item,
+                > .current-menu-ancestor {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 11px;
+                        left: 0;
+                        width: 2px;
+                        height: 40px;
+                        display: block;
+                        z-index: 100;
+                    }
+                    &:after {
+                        content: '';
+                        border-style: solid;
+                        border-width: 10px 0 10px 10px;
+                        position: absolute;
+                        left: 0;
+                        top: 20px;
+                    }
+                    &:nth-child(1) {
+                        a {
+                            @include css4 {
+                                color: var(--menu01);
+                            };
+                        }
+                        &:before {
+                            @include css4 {
+                                background: var(--menu01);
+                            };
+                        }
+                        &:after {
+                            @include css4 {
+                                border-color: transparent transparent transparent var(--menu01) ;
+                            };
+                        }
+                        .openSubMenu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu01);
+                                };
+                            }
+                            &:after {
+                                @include css4 {
+                                    color: var(--menu01);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        a {
+                            @include css4 {
+                                color: var(--menu02);
+                            };
+                        }
+                        &:before {
+                            @include css4 {
+                                background: var(--menu02);
+                            };
+                        }
+                        &:after {
+                            @include css4 {
+                                border-color: transparent transparent transparent var(--menu02) ;
+                            };
+                        }
+                        .openSubMenu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu02);
+                                };
+                            }
+                            &:after {
+                                @include css4 {
+                                    color: var(--menu02);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(3) {
+                        a {
+                            @include css4 {
+                                color: var(--menu03);
+                            };
+                        }
+                        &:before {
+                            @include css4 {
+                                background: var(--menu03);
+                            };
+                        }
+                        &:after {
+                            @include css4 {
+                                border-color: transparent transparent transparent var(--menu03) ;
+                            };
+                        }
+                        .openSubMenu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu03);
+                                };
+                            }
+                            &:after {
+                                @include css4 {
+                                    color: var(--menu03);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(4) {
+                        a {
+                            @include css4 {
+                                color: var(--menu04);
+                            };
+                        }
+                        &:before {
+                            @include css4 {
+                                background: var(--menu04);
+                            };
+                        }
+                        &:after {
+                            @include css4 {
+                                border-color: transparent transparent transparent var(--menu04) ;
+                            };
+                        }
+                        > .openSubMenu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu04);
+                                };
+                            }
+                            &:after {
+                                @include css4 {
+                                    color: var(--menu04);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(5) {
+                        a {
+                            @include css4 {
+                                color: var(--menu05);
+                            };
+                        }
+                        &:before {
+                            @include css4 {
+                                background: var(--menu05);
+                            };
+                        }
+                        &:after {
+                            @include css4 {
+                                border-color: transparent transparent transparent var(--menu05) ;
+                            };
+                        }
+                        > .openSubMenu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu05);
+                                };
+                            }
+                            &:after {
+                                @include css4 {
+                                    color: var(--menu05);
+                                };
+                            }
+                        }
+                    }
+                }
+                > .menu-item {
+                    &:nth-child(1) {
+                        a {
+                            &:hover,
+                            &:active {
+                                @include css4 {
+                                    color: var(--menu01);
+                                };
+                            }
+                        }
+                        .openSubMenu {
+                            &:hover,
+                            &:active {
+                                &:before {
+                                    @include css4 {
+                                        background: var(--menu01);
+                                    };
+                                }
+                                &:after {
+                                    @include css4 {
+                                        color: var(--menu01);
+                                    };
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        a {
+                            &:hover,
+                            &:active {
+                                @include css4 {
+                                    color: var(--menu02);
+                                };
+                            }
+                        }
+                        .openSubMenu {
+                            &:hover,
+                            &:active {
+                                &:before {
+                                    @include css4 {
+                                        background: var(--menu02);
+                                    };
+                                }
+                                &:after {
+                                    @include css4 {
+                                        color: var(--menu02);
+                                    };
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(3) {
+                        a {
+                            &:hover,
+                            &:active {
+                                @include css4 {
+                                    color: var(--menu03);
+                                };
+                            }
+                        }
+                        .openSubMenu {
+                            &:hover,
+                            &:active {
+                                &:before {
+                                    @include css4 {
+                                        background: var(--menu03);
+                                    };
+                                }
+                                &:after {
+                                    @include css4 {
+                                        color: var(--menu03);
+                                    };
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(4) {
+                        a {
+                            &:hover,
+                            &:active {
+                                @include css4 {
+                                    color: var(--menu04);
+                                };
+                            }
+                        }
+                        .openSubMenu {
+                            &:hover,
+                            &:active {
+                                &:before {
+                                    @include css4 {
+                                        background: var(--menu04);
+                                    };
+                                }
+                                &:after {
+                                    @include css4 {
+                                        color: var(--menu04);
+                                    };
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(5) {
+                        a {
+                            &:hover,
+                            &:active {
+                                @include css4 {
+                                    color: var(--menu05);
+                                };
+                            }
+                        }
+                        .openSubMenu {
+                            &:hover,
+                            &:active {
+                                &:before {
+                                    @include css4 {
+                                        background: var(--menu05);
+                                    };
+                                }
+                                &:after {
+                                    @include css4 {
+                                        color: var(--menu05);
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+                .menu-item {
+                    position: relative;
+                    margin-top: 2px;
+
+                    a {
+                        position: relative;
+                        height: 60px;
+                        font: 2em Calibri, sans-serif;
+                        line-height: 60px;
+                        text-indent: 15px;
+                        display: block;
+
+                        @include css4 {
+                            background: var(--bodyColor);
+                            color: var(--darkGray);
+                        };
+
+                        @include transition(color, 200ms, linear, 1ms);
+                    }
+                }
+                .menu-item:not(.menu-item-has-children) {
+                    a {
+                        width: 100%;
+                        height: 60px;
+                    }
+                }
+                > .menu-item-has-children {
+                    &:nth-child(1) {
+                        .sub-menu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu01);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        .sub-menu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu02);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(3) {
+                        .sub-menu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu03);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(4) {
+                        .sub-menu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu04);
+                                };
+                            }
+                        }
+                    }
+                    &:nth-child(5) {
+                        .sub-menu {
+                            &:before {
+                                @include css4 {
+                                    background: var(--menu05);
+                                };
+                            }
+                        }
+                    }
+                    .sub-menu {
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            left: 15px;
+                            height: 100%;
+                            width: 2px;
+                        }
+                    }
+                }
+                .menu-item-has-children {
+                    a {
+                        width: calc(100% - 60px);
+                        min-height: 60px !important;
+                    }
+                    .openSubMenuInput {
+                        position: absolute;
+                        top: -100%;
+                        left: -100%;
+
+                        &:checked {
+                            + .openSubMenu {
+                                &:after {
+                                    content: '\f077';
+                                }
+                            }
+                            ~ .sub-menu {
+                                max-height: 500px;
+
+                                @include transition(max-height, 400ms, cubic-bezier(1,1,1,1), 1ms);
+                            }
+                        }
+                    }
+                    .openSubMenu {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        height: 60px;
+                        width: 55px;
+                        z-index: 102;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 14px;
+                            left: -5px;
+                            width: 2px;
+                            height: 55%;
+                            display: block;
+
+                            @include css4 {
+                                background: var(--darkGray);
+                            };
+
+                            @include transition(background, 200ms, linear, 1ms)
+                        }
+                        &:after {
+                            content: '\f078';
+                            font: 5em FontAwesome;
+                            
+                            @include css4 {
+                                color: var(--darkGray);
+                            };
+
+                            @include transition(color, 200ms, linear, 1ms);
+                        }
+                    }
+                    .sub-menu {
+                        position: relative;
+                        max-height: 0px;
+                        overflow: hidden;
+
+                        @include transition(max-height, 400ms, ease-out, 1ms);
+
+                        .menu-item {
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+//it is nessesary to define the variables in sass map instead of :root, for compatibility reasons.
+
+
+$baseUrl: 'http://127.0.0.1/Andre/PIBSI/';
+$templateUrl: $baseUrl + 'wp-content/themes/pibsi/';
+
+//Media queries
+
+$desktop: 61.5625em;
+$tablet: 61.5624em;
+$mobile: 48.9374em;
+
+$variables: (
+  --rootColor: #ffffff,
+  --bodyColor: #ffffff,
+  --darkGray: #464646,
+  --gray: #d6d6d6,
+  --blue: #2cafec,
+  --white: #f1f1f1,
+  --menu01: #7c6200,
+  --menu02: #cc3333,
+  --menu03: #4b7000,
+  --menu04: #2578cc,
+  --menu05: #32324a,
+  --socialDark: #303030,
+  --facebook: #5b79a8,
+  --twitter: #63b3ff,
+  --google: #d14837,
+  --youtube: #ee2b3b
+);
+
+//Set the variables to front and make possible change it with javascript
+
+@if($css4 == true) {
+  :root {
+    @each $variable, $value in $variables {
+      #{$variable}: $value;
+    }
+  }
+}
+
+//Make the function var dont't be useless and work on non-compatible web browsers, but it's necessary to use the mixin css4
+
+@function var($variable) {
+  @if($css4 == true) {
+    @return unquote('var(' + $variable + ')');
+  }
+  @else {
+    @if(map-has-key($variables, $variable)) {
+      @return map-get($variables, $variable);
+    }
+    @if(map-has-key($responsiveVariables, $variable)) {
+      @return map-get($responsiveVariables, $variable);
+    }
+  }
+}
+
+//This mixing return the var and value of it, to work with non-compatible web browsers
+
+@mixin css4 {
+  @if ($css4 == true) {
+    $css4-backup: $css4;
+    @if($compatibility == true) {
+      $css4: false !global;
+      @content;
+    }
+    $css4: true !global;
+    @content;
+    $css4: $css4-backup;
+  }
+  @else {
+    @content;
+  }
+}
+
+/*
+Only for compatible browsers:
+    background: var(--gray);
+    color: var(--white);
+For all Browser:
+    @include css4 {
+        background: var(--gray);
+        color: var(--white);
+    };
+*/

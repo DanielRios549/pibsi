@@ -1,0 +1,25 @@
+//Tablet vars
+
+$responsiveVariables: (
+    --bodyWidth: 80%,
+    --contentWidth: 100%,
+    --sidebarWidth: 100%,
+    --socialMenuPosition: center,
+    --copyPosition: center,
+    --socialMenuDirection: row,
+    --socialMenuItems: 0 10px 0 0
+);
+
+@media only screen and (max-width: $tablet) {
+    @include mobileMenu();
+}
+
+@media only screen and (min-width: $mobile) and (max-width: $tablet) {
+    @if($css4 == true) {
+        :root {
+            @each $variable, $value in $responsiveVariables {
+                #{$variable}: $value;
+            }
+        }
+    }
+}
