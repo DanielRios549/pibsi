@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "workbench.editor.showTabs": false,
+    "files.associations": {"*.html": "php"},
+    "php.validate.executablePath": "D:/Programs/EasyPHP/eds-binaries/php/php704vc14x86x161024233643/php.exe",
+    "guides.normal.style": "dashed",
+    "guides.active.style": "dashed",
+    "guides.active.color.dark": "#2cafec",
+    "window.zoomLevel": 0
+}

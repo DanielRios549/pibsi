@@ -6,13 +6,16 @@ $templateUrl: $baseUrl + 'wp-content/themes/pibsi/';
 
 //Media queries
 
-$desktop: 61.5625em;
-$tablet: 61.5624em;
-$mobile: 48.9374em;
+//75em 61.5625em 56.875em 48.9375em 44.375em
+
+$desktop: 64.5627;
+$tablet: 64.5626;
+$mobile: 40.375;
+$unity: 'em';
 
 $variables: (
-  --rootColor: #ffffff,
-  --bodyColor: #ffffff,
+  --rootColor: #f1f1f1,
+  --bodyColor: #f1f1f1,
   --darkGray: #464646,
   --gray: #d6d6d6,
   --blue: #2cafec,

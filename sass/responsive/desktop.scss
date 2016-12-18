@@ -10,7 +10,7 @@ $responsiveVariables: (
     --socialMenuItems: 0 10px 0 0
 );
 
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: $desktop + $unity) {
     @if($css4 == true) {
         :root {
             @each $variable, $value in $responsiveVariables {
