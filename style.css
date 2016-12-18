@@ -71,6 +71,9 @@ For all Browser:
     --bodyWidth: 80%;
     --contentWidth: 80%;
     --sidebarWidth: 20%;
+    --mainSection: row nowrap;
+    --mainSectionContent: column wrap;
+    --mainSectionContentAlign: flex-start;
     --socialMenuPosition: flex-start;
     --copyPosition: flex-end;
     --socialMenuDirection: row;
@@ -455,7 +458,7 @@ For all Browser:
     position: fixed;
     top: 0;
     left: -310px;
-    width: 300px;
+    width: 280px;
     height: 100%;
     z-index: 102;
     background: var(--bodyColor);
@@ -793,6 +796,9 @@ For all Browser:
     --bodyWidth: 80%;
     --contentWidth: 100%;
     --sidebarWidth: 100%;
+    --mainSection: column wrap;
+    --mainSectionContent: row nowrap;
+    --mainSectionContentAlign: center;
     --socialMenuPosition: center;
     --copyPosition: center;
     --socialMenuDirection: row;
@@ -804,6 +810,9 @@ For all Browser:
     --bodyWidth: 100%;
     --contentWidth: 100%;
     --sidebarWidth: 100%;
+    --mainSection: column wrap;
+    --mainSectionContent: column wrap;
+    --mainSectionContentAlign: center;
     --socialMenuPosition: center;
     --copyPosition: center;
     --socialMenuDirection: column;
@@ -811,6 +820,7 @@ For all Browser:
   }
 }
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -819,7 +829,6 @@ html {
   background: var(--rootColor);
 }
 html body {
-  box-sizing: border-box;
   position: relative;
   height: 100%;
   margin: 0 auto;
@@ -851,71 +860,70 @@ html body #cabecalho {
   height: 100px;
   z-index: 100;
 }
-html body #cabecalho #logo {
+html body #cabecalho #siteLogo {
   position: relative;
   top: 0;
   height: 100%;
+  overflow-y: hidden;
+}
+html body #cabecalho #siteLogo #siteName a {
   font: 1.5em Calibri, sans-serif;
   line-height: 100px;
-  overflow-y: hidden;
   color: var(--darkGray);
 }
-html body #containerLeft {
+html body #principalSection {
   position: relative;
-  float: left;
-  width: 80%;
   height: 100%;
-  width: var(--contentWidth);
-}
-html body #containerLeft .contentDiv {
-  box-sizing: border-box;
-  position: relative;
-  height: 250px;
   width: 100%;
+  display: flex;
+  flex-flow: var(--mainSection);
+}
+html body #principalSection #containerLeft {
+  height: 100%;
+  display: flex;
+  width: var(--contentWidth);
+  flex-flow: var(--mainSectionContent);
+  align-items: var(--mainSectionContentAlign);
+  justify-content: var(--mainSectionContentAlign);
+}
+html body #principalSection #containerLeft .contentDiv {
   margin-bottom: 10px;
   padding: 10px;
-}
-html body #containerLeft .contentDiv .thumbnail {
-  position: relative;
   width: 150px;
-  height: 150px;
 }
-html body #containerLeft .contentDiv .thumbnail img {
+html body #principalSection #containerLeft .contentDiv .thumbnail {
   position: relative;
   width: 100%;
   height: 100%;
 }
-html body #containerLeft .contentDiv .title {
-  position: relative;
+html body #principalSection #containerLeft .contentDiv .thumbnail img {
+  width: 100%;
+  height: 100%;
+}
+html body #principalSection #containerLeft .contentDiv .title {
   height: 40px;
 }
-html body #containerLeft .contentDiv .title .link {
-  position: relative;
+html body #principalSection #containerLeft .contentDiv .title .link {
   height: 100%;
   width: 100%;
   font: 1em Calibri, sans-serif;
   color: var(--darkGray);
 }
-html body #containerLeft .contentDiv .title .link:hover {
+html body #principalSection #containerLeft .contentDiv .title .link:hover {
   text-decoration: underline;
 }
-html body .sidebar {
-  box-sizing: border-box;
+html body #principalSection .sidebar {
   border-radius: 5px;
-  position: relative;
   top: 20px;
   right: 0;
-  float: right;
   height: 250px;
   border: 4px solid var(--darkGray);
   width: var(--sidebarWidth);
 }
 html body #rodape {
-  box-sizing: border-box;
   position: relative;
   top: 20px;
   min-height: 100px;
-  clear: both;
   padding-top: 20px;
   width: 100%;
   margin: 0 auto;
@@ -966,7 +974,6 @@ html body #rodape #socialMenu .menuUl .google a:before {
   color: var(--google);
 }
 html body #rodape #socialMenu .menuUl .menu-item {
-  box-sizing: border-box;
   border-radius: 5px;
   height: 40px;
   min-width: 40px;
@@ -975,7 +982,6 @@ html body #rodape #socialMenu .menuUl .menu-item {
   background: var(--gray);
 }
 html body #rodape #socialMenu .menuUl .menu-item a {
-  box-sizing: border-box;
   border-radius: 5px;
   position: relative;
   font: 1.5em Calibri, sans-serif;

@@ -2,7 +2,7 @@
     $currentLink = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html <?php language_attributes();?>>
 <head>
     <meta charset="<?php bloginfo('charset')?>";/>
 	<meta name="description" content="<?php bloginfo('description');?>"/>
@@ -34,7 +34,7 @@
 
     <?php wp_head();?>
 </head>
-<body>
+<body <?php body_class();?>>
 <header id="cabecalho">
     <?php
         $homeLink = get_option('home') . "/";
@@ -46,8 +46,8 @@
             $homeMenu = 'homeLink';
         }
     ?>
-    <div id="logo">
-        <h1 id="name"><?php bloginfo('name');?></h1>
+    <div id="siteLogo">
+        <h1 id="siteName"><a href="<?php echo get_option('home');?>"><?php bloginfo('name');?></a></h1>
     </div>
 </header>
 <?php if (has_nav_menu('primary')) {?>

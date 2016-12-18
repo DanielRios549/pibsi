@@ -27,6 +27,7 @@ $compatibility: false;
 @import 'responsive/mobile.scss';
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -37,7 +38,6 @@ html {
     };
 
     body {
-        box-sizing: border-box;
         position: relative;
         height: 100%;
         margin: 0 auto;
@@ -77,17 +77,22 @@ html {
             height: 100px;
             z-index: 100;
 
-            #logo {
+            #siteLogo {
                 position: relative;
                 top: 0;
                 height: 100%;
-                font: 1.5em Calibri, sans-serif;
-                line-height: 100px;
                 overflow-y: hidden;
 
-                @include css4 {
-                    color: var(--darkGray);
-                };
+                #siteName {
+                    a {
+                        font: 1.5em Calibri, sans-serif;
+                        line-height: 100px;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                    }
+                }
             }
         }
 
@@ -95,77 +100,77 @@ html {
 
         //Body style
 
-        #containerLeft {
+        #principalSection {
             position: relative;
-            float: left;
-            width: 80%;
             height: 100%;
+            width: 100%;
+            display: flex;
 
             @include css4 {
-                width: var(--contentWidth);
+                flex-flow: var(--mainSection);
             };
-            .contentDiv {
-                box-sizing: border-box;
-                position: relative;
-                height: 250px;
-                width: 100%;
-                margin-bottom: 10px;
-                padding: 10px;
-                
-                .thumbnail {
-                    position: relative;
+            #containerLeft {
+                height: 100%;
+                display: flex;
+
+                @include css4 {
+                    width: var(--contentWidth);
+                    flex-flow: var(--mainSectionContent);
+                    align-items: var(--mainSectionContentAlign);
+                    justify-content: var(--mainSectionContentAlign);
+                };
+                .contentDiv {
+                    margin-bottom: 10px;
+                    padding: 10px;
                     width: 150px;
-                    height: 150px;
-
-                    img {
+                    
+                    .thumbnail {
                         position: relative;
                         width: 100%;
                         height: 100%;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
-                }
-                .title {
-                    position: relative;
-                    height: 40px;
+                    .title {
+                        height: 40px;
 
-                    .link {
-                        position: relative;
-                        height: 100%;
-                        width: 100%;
-                        font: 1em Calibri, sans-serif;
+                        .link {
+                            height: 100%;
+                            width: 100%;
+                            font: 1em Calibri, sans-serif;
 
-                        @include css4 {
-                            color: var(--darkGray);
-                        };
-                        &:hover {
-                            text-decoration: underline;
+                            @include css4 {
+                                color: var(--darkGray);
+                            };
+                            &:hover {
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }
             }
-        }
-        .sidebar {
-            box-sizing: border-box;
-            border-radius: 5px;
-            position: relative;
-            top: 20px;
-            right: 0;
-            float: right;
-            height: 250px;
-            
-            @include css4 {
-                border: 4px solid var(--darkGray);
-                width: var(--sidebarWidth);
-            };
+            .sidebar {
+                border-radius: 5px;
+                top: 20px;
+                right: 0;
+                height: 250px;
+                
+                @include css4 {
+                    border: 4px solid var(--darkGray);
+                    width: var(--sidebarWidth);
+                };
+            }
         }
 
         //Footer style
 
         #rodape {
-            box-sizing: border-box;
             position: relative;
             top: 20px;
             min-height: 100px;
-            clear: both;
             padding-top: 20px;
             width: 100%;
             margin: 0 auto;
@@ -256,7 +261,6 @@ html {
                         }
                     }
                     .menu-item {
-                        box-sizing: border-box;
                         border-radius: 5px;
                         height: 40px;
                         min-width: 40px;
@@ -270,7 +274,6 @@ html {
                             background: var(--gray);
                         };
                         a {
-                            box-sizing: border-box;
                             border-radius: 5px;
                             position: relative;
                             font: 1.5em Calibri, sans-serif;
