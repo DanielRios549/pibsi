@@ -8,8 +8,8 @@ Author URI: https://www.facebook.com/TheDaniel549
 Version: 1.0
 */
 :root {
-  --rootColor: #ffffff;
-  --bodyColor: #ffffff;
+  --rootColor: #f1f1f1;
+  --bodyColor: #f1f1f1;
   --darkGray: #464646;
   --gray: #d6d6d6;
   --blue: #2cafec;
@@ -66,7 +66,7 @@ For all Browser:
  | @ Author	: Daniel Rios.
  ****************************************************************
 */
-@media only screen and (min-width: 61.5625em) {
+@media only screen and (min-width: 64.5627em) {
   :root {
     --bodyWidth: 80%;
     --contentWidth: 80%;
@@ -397,7 +397,7 @@ For all Browser:
     text-decoration: underline;
   }
 }
-@media only screen and (max-width: 61.5624em) {
+@media only screen and (max-width: 64.5626em) {
   #toggleMenuInput {
     position: absolute;
     top: -100%;
@@ -788,7 +788,7 @@ For all Browser:
     margin-left: 20px;
   }
 }
-@media only screen and (min-width: 48.9374em) and (max-width: 61.5624em) {
+@media only screen and (min-width: 40.375em) and (max-width: 64.5626em) {
   :root {
     --bodyWidth: 80%;
     --contentWidth: 100%;
@@ -799,7 +799,7 @@ For all Browser:
     --socialMenuItems: 0 10px 0 0;
   }
 }
-@media only screen and (max-width: 48.9374em) {
+@media only screen and (max-width: 40.375em) {
   :root {
     --bodyWidth: 100%;
     --contentWidth: 100%;
