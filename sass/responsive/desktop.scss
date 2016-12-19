@@ -12,8 +12,7 @@ $responsiveVariables: (
     --copyPosition: flex-end,
     --socialMenuDirection: row,
     --socialMenuItems: 0 10px 0 0,
-    --desktopMenuAlign: flex-start,
-    --teste2: 'true'
+    --desktopMenuAlign: flex-start
 );
 
 @media only screen and (min-width: $desktop + $unity) {
