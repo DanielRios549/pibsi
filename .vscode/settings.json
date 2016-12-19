@@ -6,5 +6,6 @@
     "guides.normal.style": "dashed",
     "guides.active.style": "dashed",
     "guides.active.color.dark": "#2cafec",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "editor.fontSize": 16
 }

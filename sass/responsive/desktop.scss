@@ -3,6 +3,7 @@
 $responsiveVariables: (
     --bodyWidth: 80%,
     --contentWidth: 80%,
+    --contentHeight: 500px,
     --sidebarWidth: 20%,
     --mainSection: row nowrap,
     --mainSectionContent: column wrap,
@@ -10,7 +11,9 @@ $responsiveVariables: (
     --socialMenuPosition: flex-start,
     --copyPosition: flex-end,
     --socialMenuDirection: row,
-    --socialMenuItems: 0 10px 0 0
+    --socialMenuItems: 0 10px 0 0,
+    --desktopMenuAlign: flex-start,
+    --teste2: 'true'
 );
 
 @media only screen and (min-width: $desktop + $unity) {
@@ -125,13 +128,14 @@ $responsiveVariables: (
                 }
             }
             .menuUl {
-                box-sizing: border-box;
-                position: relative;
                 width: calc(100% - 80px);
-                width: 100%;
                 height: 100%;
                 margin-left: 80px;
+                display: flex;
 
+                @include css4 {
+                    justify-content: var(--desktopMenuAlign);
+                };
                 > .menu-item {
                     border-radius: 3px;
                     float: left;
