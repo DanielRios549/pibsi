@@ -69,7 +69,7 @@
 
         &:checked {
             position: relative;
-            height: 42px;
+            height: 40px;
             width: 40px;
             display: block;
             z-index: 101;
@@ -117,7 +117,6 @@
         }
     }
     #menuContainer {
-        box-sizing: border-box;
         position: fixed;
         top: 0;
         left: -310px;

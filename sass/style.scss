@@ -105,15 +105,16 @@ html {
             height: 100%;
             width: 100%;
             display: flex;
+            margin-top: 20px;
 
             @include css4 {
                 flex-flow: var(--mainSection);
             };
             #containerLeft {
-                height: 100%;
                 display: flex;
 
                 @include css4 {
+                    min-height: var(--contentHeight);
                     width: var(--contentWidth);
                     flex-flow: var(--mainSectionContent);
                     align-items: var(--mainSectionContentAlign);
@@ -169,7 +170,6 @@ html {
 
         #rodape {
             position: relative;
-            top: 20px;
             min-height: 100px;
             padding-top: 20px;
             width: 100%;
