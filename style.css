@@ -80,6 +80,7 @@ For all Browser:
     --socialMenuDirection: row;
     --socialMenuItems: 0 10px 0 0;
     --desktopMenuAlign: flex-start;
+    --teste2: "true";
   }
 
   #toggleMenuInput {
