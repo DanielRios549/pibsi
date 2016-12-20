@@ -24,7 +24,6 @@ Version: 1.0
   --twitter: #63b3ff;
   --google: #d14837;
   --youtube: #ee2b3b;
-  --teste: #2cafec;
 }
 
 /*
@@ -80,7 +79,7 @@ For all Browser:
     --contentHeight: 500px;
     --sidebarWidth: 20%;
     --mainSection: row nowrap;
-    --mainSectionContent: column wrap;
+    --mainSectionContent: row wrap;
     --mainSectionContentAlign: flex-start;
     --socialMenuPosition: flex-start;
     --copyPosition: flex-end;
@@ -802,7 +801,7 @@ For all Browser:
     --contentHeight: 200px;
     --sidebarWidth: 100%;
     --mainSection: column wrap;
-    --mainSectionContent: row nowrap;
+    --mainSectionContent: row wrap;
     --mainSectionContentAlign: center;
     --socialMenuPosition: center;
     --copyPosition: center;
@@ -909,7 +908,7 @@ html body #principalSection #containerLeft {
 html body #principalSection #containerLeft .contentDiv {
   margin-bottom: 10px;
   padding: 10px;
-  width: 150px;
+  width: 250px;
 }
 
 html body #principalSection #containerLeft .contentDiv .thumbnail {
