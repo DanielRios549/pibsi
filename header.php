@@ -73,4 +73,3 @@
         </nav>
     </div>
 <?php }?>
-<?php //sass --no-cache sass/style.scss:style.css --style expanded ?>
