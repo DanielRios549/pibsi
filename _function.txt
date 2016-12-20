@@ -1,3 +1,0 @@
-get_option('home');
-wp_list_pages('title_li=');
-wp_list_categories();
