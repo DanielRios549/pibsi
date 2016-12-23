@@ -15,7 +15,7 @@ $responsiveVariables: (
     --desktopMenuAlign: flex-start
 );
 
-@media only screen and (min-width: $desktop + $unity) {
+@media (min-width: $desktop + $unity) {
     @if($css4 == true) {
         :root {
             @each $variable, $value in $responsiveVariables {

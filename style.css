@@ -72,7 +72,7 @@ For all Browser:
  | @ Author	: Daniel Rios.
  ****************************************************************
 */
-@media only screen and (min-width: 64.5627em) {
+@media (min-width: 64.5627em) {
   :root {
     --bodyWidth: 80%;
     --contentWidth: 80%;
@@ -405,7 +405,7 @@ For all Browser:
   }
 }
 
-@media only screen and (max-width: 64.5626em) {
+@media (max-width: 64.5626em) {
   #toggleMenuInput {
     position: absolute;
     top: -100%;
@@ -794,7 +794,7 @@ For all Browser:
   }
 }
 
-@media only screen and (min-width: 40.375em) and (max-width: 64.5626em) {
+@media (min-width: 40.375em) and (max-width: 64.5626em) {
   :root {
     --bodyWidth: 80%;
     --contentWidth: 100%;
@@ -810,7 +810,7 @@ For all Browser:
   }
 }
 
-@media only screen and (max-width: 40.375em) {
+@media (max-width: 40.375em) {
   :root {
     --bodyWidth: 100%;
     --contentWidth: 100%;
