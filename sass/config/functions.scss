@@ -34,6 +34,14 @@
 	animation: $t1 $t2 $t3 $t4 $t5;
 }
 
+@mixin gradient($angle, $start, $end) {
+  background-image: -webkit-gradient(linear, $angle, from($start), to($end));
+  background-image: -webkit-linear-gradient($angle, $start, $end);
+  background-image: -moz-linear-gradient($angle, $start, $end);
+  background-image: -ms-linear-gradient($angle, $start, $end);
+  background-image: linear-gradient($angle, $start, $end);
+}
+
 @mixin flex() {
 	display: -webkit-box;
 	display: -ms-flexbox;

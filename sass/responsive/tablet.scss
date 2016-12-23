@@ -14,11 +14,11 @@ $responsiveVariables: (
     --socialMenuItems: 0 10px 0 0
 );
 
-@media only screen and (max-width: $tablet + $unity) {
+@media (max-width: $tablet + $unity) {
     @include mobileMenu();
 }
 
-@media only screen and (min-width: $mobile + $unity) and (max-width: $tablet + $unity) {
+@media (min-width: $mobile + $unity) and (max-width: $tablet + $unity) {
     @if($css4 == true) {
         :root {
             @each $variable, $value in $responsiveVariables {
