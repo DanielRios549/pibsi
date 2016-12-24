@@ -72,7 +72,17 @@ For all Browser:
  | @ Author	: Daniel Rios.
  ****************************************************************
 */
-@media (min-width: 64.5627em) {
+@media (min-width: 74.138em) {
+  body {
+    width: 1000px !important;
+  }
+  body .menuFixed {
+    width: 1000px !important;
+    left: auto !important;
+  }
+}
+
+@media (min-width: 64.5727em) {
   :root {
     --bodyWidth: 80%;
     --contentWidth: 80%;
@@ -151,7 +161,6 @@ For all Browser:
     position: relative;
     border-radius: 3px;
     float: left;
-    margin-left: 20px;
     height: 100%;
     vertical-align: baseline;
     width: 60px;
@@ -176,7 +185,7 @@ For all Browser:
   #menuContainer #menu .menuUl {
     width: calc(100% - 80px);
     height: 100%;
-    margin-left: 80px;
+    margin-left: 60px;
     display: flex;
     justify-content: var(--desktopMenuAlign);
   }
@@ -887,6 +896,19 @@ html body #cabecalho #siteLogo #siteName a {
   color: var(--darkGray);
 }
 
+html body #slider {
+  margin-top: 20px;
+}
+
+html body #slider .responsive-slider .slides li .slide > h2 a {
+  font: 2em Calibre, sans-serif !important;
+  color: var(--white) !important;
+}
+
+html body #slider .responsive-slider .slides li .slide a:hover {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
 html body #principalSection {
   position: relative;
   height: 100%;
@@ -907,7 +929,7 @@ html body #principalSection #containerLeft {
 
 html body #principalSection #containerLeft .contentDiv {
   margin-bottom: 10px;
-  padding: 10px;
+  padding-right: 10px;
   width: 250px;
 }
 
@@ -935,6 +957,37 @@ html body #principalSection #containerLeft .contentDiv .title .link {
 
 html body #principalSection #containerLeft .contentDiv .title .link:hover {
   text-decoration: underline;
+}
+
+html body #principalSection #containerLeftPost {
+  display: flex;
+}
+
+html body #principalSection #containerLeftPost .contentDiv {
+  padding: 5px;
+}
+
+html body #principalSection #containerLeftPost .contentDiv .title {
+  height: 40px;
+}
+
+html body #principalSection #containerLeftPost .contentDiv .title .link {
+  height: 100%;
+  width: 100%;
+  font: 3em Calibri, sans-serif;
+  color: var(--darkGray);
+}
+
+html body #principalSection #containerLeftPost .contentDiv .thumbnail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+html body #principalSection #containerLeftPost .contentDiv .thumbnail img {
+  width: 100%;
+  height: 100%;
 }
 
 html body #principalSection .sidebar {

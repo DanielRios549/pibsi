@@ -28,6 +28,8 @@ add_theme_support('custom-logo',
 );
 //add_theme_support('customize-selective-refresh-widgets');
 
+add_image_size('1000', '350');
+
 //Theme functions
 
 if(function_exists('register_sidebar')) {
@@ -54,8 +56,8 @@ add_action('init', 'register_my_nav_menu');
 
 function pibsi_scripts() {
     wp_enqueue_script('pibsi-jquery', get_template_directory_uri() . '/js/lib/jquery.js', array(), '2.1.4', false);
-    wp_enqueue_script('pibsi-script', get_template_directory_uri() . '/js/functions.js', array(), '1.0', true);
-    wp_enqueue_script('pibsi-script-2', get_template_directory_uri() . '/js/script.js', array(), '1.0', true);
+    wp_enqueue_script('pibsi-function', get_template_directory_uri() . '/js/functions.js', array(), '1.0', true);
+    wp_enqueue_script('pibsi-script', get_template_directory_uri() . '/js/script.js', array(), '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'pibsi_scripts');

@@ -15,6 +15,17 @@ $responsiveVariables: (
     --desktopMenuAlign: flex-start
 );
 
+@media (min-width: $desktopLarge + $unity) {
+    body {
+        width: 1000px !important;
+        
+        .menuFixed {
+            width: 1000px !important;
+            left: auto !important;
+        }
+    }
+}
+
 @media (min-width: $desktop + $unity) {
     @if($css4 == true) {
         :root {
@@ -104,7 +115,7 @@ $responsiveVariables: (
                 position: relative;
                 border-radius: 3px;
                 float: left;
-                margin-left: 20px;
+                //margin-left: 20px;
                 height: 100%;
                 vertical-align: baseline;
                 width: 60px;
@@ -129,7 +140,7 @@ $responsiveVariables: (
             .menuUl {
                 width: calc(100% - 80px);
                 height: 100%;
-                margin-left: 80px;
+                margin-left: 60px;
                 display: flex;
 
                 @include css4 {

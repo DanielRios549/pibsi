@@ -100,6 +100,26 @@ html {
 
         //Body style
 
+        #slider {
+            margin-top: 20px;
+
+            .responsive-slider .slides {
+                li .slide {
+                    > h2 a {
+                        font: 2em Calibre, sans-serif !important;
+
+                        @include css4 {
+                            color: var(--white) !important;
+                        };
+                    }
+                    a {
+                        &:hover {
+                            background: rgba(0,0,0,.3)!important;
+                        }
+                    }
+                }
+            }
+        }
         #principalSection {
             position: relative;
             height: 100%;
@@ -110,6 +130,9 @@ html {
             @include css4 {
                 flex-flow: var(--mainSection);
             };
+
+            //Content for home
+
             #containerLeft {
                 display: flex;
 
@@ -122,7 +145,7 @@ html {
                 };
                 .contentDiv {
                     margin-bottom: 10px;
-                    padding: 10px;
+                    padding-right: 10px;
                     width: 250px;
                     
                     .thumbnail {
@@ -149,6 +172,39 @@ html {
                             &:hover {
                                 text-decoration: underline;
                             }
+                        }
+                    }
+                }
+            }
+            #containerLeftPost {
+                display: flex;
+
+                //Content for post page
+
+                .contentDiv {
+                    padding: 5px;
+                    .title {
+                        height: 40px;
+
+                        .link {
+                            height: 100%;
+                            width: 100%;
+                            font: 3em Calibri, sans-serif;
+
+                            @include css4 {
+                                color: var(--darkGray);
+                            };
+                        }
+                    }
+                    .thumbnail {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
                         }
                     }
                 }

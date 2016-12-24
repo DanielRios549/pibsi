@@ -1,21 +1,26 @@
 <?php get_header();?>
+	<div id="slider">
+		<?php echo do_shortcode("[responsive_slider]");?>
+	</div>
 	<main id="principalSection">
 		<section id="containerLeft">
-			<?php if(have_posts()) { if(is_home() && !is_front_page()) {?>
-				<header class="postTitle">
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php } while(have_posts()) { the_post(); get_template_part('template-parts/content', get_post_format());?>
-			<article class="contentDiv">
-				<a class="thumbnail" href="<?php echo the_permalink();?>"><?php the_post_thumbnail('thumbnail');?></a>
-				<h1 class="title">
-					<a class="link" href="<?php echo the_permalink();?>"><?php echo the_title();?></a>
-				</h1>
-				<div class="time"><?php echo 'Publicado em '; the_time("d/m/Y");?></div>
-			</article>
-			<?php }} else {?>
-			<p class="postContent">Não existe posts cadastrados ainda.</p>
-			<?php }?>
+		<?php
+			if(have_posts()) {
+				while(have_posts()) {
+					the_post();
+					
+					get_template_part('template-parts/content', get_post_format());
+				}
+				the_posts_pagination(array(
+					'prev_text'          => __('Previous page', 'pibsi'),
+					'next_text'          => __('Next page', 'pibsi'),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'pibsi') . ' </span>',
+				));
+			}
+			else {
+				get_template_part('template-parts/content', 'none');
+			}
+		?>
 		</section>
 		<?php get_sidebar();?>
 	</main>

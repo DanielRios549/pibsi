@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var watch = require('watch');   
+var watch = require('watch');
 var rename = require('gulp-rename');
 
 //Task to copy only components the project needs
