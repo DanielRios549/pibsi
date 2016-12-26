@@ -1,6 +1,6 @@
 <?php get_header();?>
 	<div id="slider">
-		<?php echo do_shortcode("[responsive_slider]");?>
+		<?php echo do_shortcode("[smartslider3 slider=2]");?>
 	</div>
 	<main id="principalSection">
 		<section id="containerLeft">

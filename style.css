@@ -900,15 +900,6 @@ html body #slider {
   margin-top: 20px;
 }
 
-html body #slider .responsive-slider .slides li .slide > h2 a {
-  font: 2em Calibre, sans-serif !important;
-  color: var(--white) !important;
-}
-
-html body #slider .responsive-slider .slides li .slide a:hover {
-  background: rgba(0, 0, 0, 0.3) !important;
-}
-
 html body #principalSection {
   position: relative;
   height: 100%;
@@ -918,7 +909,8 @@ html body #principalSection {
   flex-flow: var(--mainSection);
 }
 
-html body #principalSection #containerLeft {
+html body #principalSection #containerLeft,
+html body #principalSection #containerLeftPost {
   display: flex;
   min-height: var(--contentHeight);
   width: var(--contentWidth);
@@ -928,43 +920,93 @@ html body #principalSection #containerLeft {
 }
 
 html body #principalSection #containerLeft .contentDiv {
+  position: relative;
   margin-bottom: 10px;
   padding-right: 10px;
   width: 250px;
 }
 
-html body #principalSection #containerLeft .contentDiv .thumbnail {
+html body #principalSection #containerLeft .contentDiv .contentHeader .thumbnail {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-html body #principalSection #containerLeft .contentDiv .thumbnail img {
+html body #principalSection #containerLeft .contentDiv .contentHeader .thumbnail img {
   width: 100%;
   height: 100%;
 }
 
-html body #principalSection #containerLeft .contentDiv .title {
-  height: 40px;
+html body #principalSection #containerLeft .contentDiv .contentHeader .title {
+  min-height: 10px;
+  margin-bottom: 10px;
 }
 
-html body #principalSection #containerLeft .contentDiv .title .link {
+html body #principalSection #containerLeft .contentDiv .contentHeader .title .link {
   height: 100%;
   width: 100%;
-  font: 1em Calibri, sans-serif;
+  font: 1.5em Calibri, sans-serif;
   color: var(--darkGray);
 }
 
-html body #principalSection #containerLeft .contentDiv .title .link:hover {
+html body #principalSection #containerLeft .contentDiv .contentHeader .title .link:hover {
   text-decoration: underline;
 }
 
-html body #principalSection #containerLeftPost {
-  display: flex;
+html body #principalSection #containerLeft .contentDiv .contentFooter .footerOption,
+html body #principalSection #containerLeft .contentDiv .contentFooter .post-edit-link {
+  margin-bottom: 10px;
+  font: 1.3em Calibri, sans-serif;
+  color: var(--darkGray);
+}
+
+html body #principalSection #containerLeft .contentDiv .contentFooter .post-edit-link:before {
+  content: '\f044';
+  font: 1em FontAwesome;
+  color: var(--darkGray);
+}
+
+html body #principalSection #containerLeft .contentDiv .contentFooter .post-edit-link:hover {
+  text-decoration: underline;
+}
+
+html body #principalSection #containerLeft .gallery:before,
+html body #principalSection #containerLeft .video:before {
+  font: 1.5em FontAwesome;
+  position: absolute;
+  text-align: center;
+  line-height: 25px;
+  right: 20px;
+  z-index: 98;
+  width: 30px;
+  height: 25px;
+  background-color: var(--blue);
+  color: var(--dark);
+}
+
+html body #principalSection #containerLeft .gallery:after,
+html body #principalSection #containerLeft .video:after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  z-index: 98;
+  border-style: solid;
+  border-width: 10px 15px 10px 15px;
+  border-color: var(--blue) transparent transparent transparent;
+}
+
+html body #principalSection #containerLeft .gallery:before {
+  content: '\f03e';
+}
+
+html body #principalSection #containerLeft .video:before {
+  content: '\f03d';
 }
 
 html body #principalSection #containerLeftPost .contentDiv {
   padding: 5px;
+  width: 100%;
 }
 
 html body #principalSection #containerLeftPost .contentDiv .title {

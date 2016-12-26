@@ -8,7 +8,7 @@
  */
 ?>
 <?php if(is_home() || is_category()) {?>
-	<article id="post-<?php the_ID();?>" class="contentDiv">
+	<article id="post-<?php the_ID();?>" class="contentDiv <?php echo get_post_format();?>">
 		<header class="contentHeader">
 			<a class="thumbnail" href="<?php echo the_permalink();?>"><?php the_post_thumbnail('thumbnail');?></a>
 			<h1 class="title">
@@ -17,15 +17,13 @@
 		</header>
 		<footer class="contentFooter">
 			<div class="footerOption">
-				<?php
-					edit_post_link(
-						__('<span class="editContent">Editar</span>', 'pibsi')
-					)
-				?>
-			</div>
-			<div class="footerOption">
 				<div class="time"><?php echo 'Publicado em '; the_time("d/m/Y");?></div>
 			</div>
+			<?php
+				edit_post_link(
+					__('<span class="editContent">Editar</span>', 'pibsi')
+				)
+			?>
 		</footer>
 	</article>
 <?php } else {?>
@@ -34,7 +32,6 @@
 			<h1 class="title">
 				<span class="link"><?php echo the_title();?></span>
 			</h1>
-			<div class="thumbnail"><?php the_post_thumbnail('post-thumbnail');?></siv>
 		</header>
 		<div id="postContent">
 			<?php the_content();?>

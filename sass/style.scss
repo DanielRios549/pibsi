@@ -102,23 +102,6 @@ html {
 
         #slider {
             margin-top: 20px;
-
-            .responsive-slider .slides {
-                li .slide {
-                    > h2 a {
-                        font: 2em Calibre, sans-serif !important;
-
-                        @include css4 {
-                            color: var(--white) !important;
-                        };
-                    }
-                    a {
-                        &:hover {
-                            background: rgba(0,0,0,.3)!important;
-                        }
-                    }
-                }
-            }
         }
         #principalSection {
             position: relative;
@@ -131,9 +114,8 @@ html {
                 flex-flow: var(--mainSection);
             };
 
-            //Content for home
-
-            #containerLeft {
+            #containerLeft,
+            #containerLeftPost {
                 display: flex;
 
                 @include css4 {
@@ -143,46 +125,121 @@ html {
                     align-items: var(--mainSectionContentAlign);
                     justify-content: var(--mainSectionContentAlign);
                 };
+            }
+
+            //Content for home
+
+            #containerLeft {
                 .contentDiv {
+                    position: relative;
                     margin-bottom: 10px;
                     padding-right: 10px;
                     width: 250px;
                     
-                    .thumbnail {
-                        position: relative;
-                        width: 100%;
-                        height: 100%;
-
-                        img {
+                    .contentHeader {
+                        .thumbnail {
+                            position: relative;
                             width: 100%;
                             height: 100%;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .title {
+                            min-height: 10px;
+                            margin-bottom: 10px;
+
+                            .link {
+                                height: 100%;
+                                width: 100%;
+                                font: 1.5em Calibri, sans-serif;
+
+                                @include css4 {
+                                    color: var(--darkGray);
+                                };
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
                         }
                     }
-                    .title {
-                        height: 40px;
-
-                        .link {
-                            height: 100%;
-                            width: 100%;
-                            font: 1em Calibri, sans-serif;
+                    .contentFooter {
+                        .footerOption,
+                        .post-edit-link {
+                            margin-bottom: 10px;
+                            font: 1.3em Calibri, sans-serif;
 
                             @include css4 {
                                 color: var(--darkGray);
                             };
+                        }
+                        .post-edit-link {
+                            &:before {
+                                content: '\f044';
+                                font: 1em FontAwesome;
+
+                                @include css4 {
+                                    color: var(--darkGray);
+                                };
+                            }
                             &:hover {
                                 text-decoration: underline;
                             }
                         }
                     }
                 }
+                .gallery,
+                .video {
+                    &:before {
+                        font: 1.5em FontAwesome;
+                        position: absolute;
+                        text-align: center;
+                        line-height: 25px;
+                        right: 20px;
+                        z-index: 98;
+                        width: 30px;
+                        height: 25px;
+                        
+                        @include css4 {
+                            background-color: var(--blue);
+                            color: var(--dark);
+                        };
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: 25px;
+                        right: 20px;
+                        z-index: 98;
+                        border-style: solid;
+                        border-width: 10px 15px 10px 15px;
+                        
+                        @include css4 {
+                            border-color: var(--blue) transparent transparent transparent;
+                        };
+                    }
+                }
+                .gallery {
+                    &:before {
+                        content: '\f03e';
+                    }
+                }
+                .video {
+                    &:before {
+                        content: '\f03d';
+                    }
+                }
             }
+
+            //Content for post page
+
             #containerLeftPost {
-                display: flex;
-
-                //Content for post page
-
                 .contentDiv {
                     padding: 5px;
+                    width: 100%;
+
                     .title {
                         height: 40px;
 
