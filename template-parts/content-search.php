@@ -1,13 +1,13 @@
 <?php
 /**
- * The template part for displaying content
+ * The template part for displaying search content
  *
  * @package WordPress
  * @subpackage PISBI
  * @since PISBI 1.0
  */
 ?>
-<?php if(is_home()) {?>
+<?php if(is_search()) {?>
 	<article id="post-<?php the_ID();?>" class="contentDiv <?php echo get_post_format();?>">
 		<header class="contentHeader">
 			<a class="thumbnail" href="<?php echo the_permalink();?>"><?php the_post_thumbnail('thumbnail');?></a>

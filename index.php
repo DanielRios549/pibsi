@@ -1,7 +1,8 @@
-<?php get_header();?>
+<?php get_header(); if(is_home()) {?>
 	<div id="slider">
 		<?php echo do_shortcode("[smartslider3 slider=2]");?>
 	</div>
+	<?php }?>
 	<main id="principalSection">
 		<section id="containerLeft">
 		<?php

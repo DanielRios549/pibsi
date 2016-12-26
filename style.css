@@ -42,6 +42,11 @@ For all Browser:
 }
 
 @font-face {
+  font-family: 'DashIcon';
+  src: url("../../../wp-includes/fonts/dashicons.ttf");
+}
+
+@font-face {
   font-family: 'Arial';
   src: url("font/arial.ttf");
 }
@@ -128,6 +133,7 @@ For all Browser:
   }
   #menuContainer #menu {
     z-index: 101;
+    display: flex;
     background: var(--bodyColor);
   }
   #menuContainer #menu #homeLink {
@@ -183,9 +189,8 @@ For all Browser:
     left: 18px;
   }
   #menuContainer #menu .menuUl {
-    width: calc(100% - 80px);
+    width: 70%;
     height: 100%;
-    margin-left: 60px;
     display: flex;
     justify-content: var(--desktopMenuAlign);
   }
@@ -412,6 +417,16 @@ For all Browser:
   #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > a:hover {
     text-decoration: underline;
   }
+  #menuContainer #menu .searchForm {
+    display: block;
+    width: 30%;
+    height: 100%;
+  }
+  #menuContainer #menu .searchForm .searchInput {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @media (max-width: 64.5626em) {
@@ -484,6 +499,8 @@ For all Browser:
     width: 100%;
     height: 100%;
     overflow-x: auto;
+    display: flex;
+    flex-direction: column;
   }
   #menuContainer #menu #homeLinkActive:before {
     content: '';
@@ -511,6 +528,7 @@ For all Browser:
     height: 60px;
     width: 100%;
     display: block;
+    order: 2;
   }
   #menuContainer #menu #homeLink a:hover:after, #menuContainer #menu #homeLink a:active:after,
   #menuContainer #menu #homeLinkActive a:hover:after,
@@ -529,6 +547,7 @@ For all Browser:
   #menuContainer #menu .menuUl {
     position: relative;
     overflow-x: hidden;
+    order: 3;
   }
   #menuContainer #menu .menuUl > .current-menu-item:before,
   #menuContainer #menu .menuUl > .current-menu-ancestor:before {
@@ -801,6 +820,16 @@ For all Browser:
   #menuContainer #menu .menuUl .menu-item-has-children .sub-menu .menu-item {
     margin-left: 20px;
   }
+  #menuContainer #menu .searchForm {
+    height: 40px;
+    width: 100%;
+    order: 1;
+  }
+  #menuContainer #menu .searchForm .searchInput {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 @media (min-width: 40.375em) and (max-width: 64.5626em) {
@@ -881,18 +910,19 @@ html body #cabecalho {
   width: 100%;
   height: 100px;
   z-index: 100;
+  display: flex;
+  align-items: center;
 }
 
 html body #cabecalho #siteLogo {
   position: relative;
   top: 0;
-  height: 100%;
+  min-height: 30px;
   overflow-y: hidden;
 }
 
 html body #cabecalho #siteLogo #siteName a {
   font: 1.5em Calibri, sans-serif;
-  line-height: 100px;
   color: var(--darkGray);
 }
 
@@ -917,6 +947,10 @@ html body #principalSection #containerLeftPost {
   flex-flow: var(--mainSectionContent);
   align-items: var(--mainSectionContentAlign);
   justify-content: var(--mainSectionContentAlign);
+}
+
+html body #principalSection #containerLeft .searchResults {
+  width: 100%;
 }
 
 html body #principalSection #containerLeft .contentDiv {
@@ -972,7 +1006,7 @@ html body #principalSection #containerLeft .contentDiv .contentFooter .post-edit
 
 html body #principalSection #containerLeft .gallery:before,
 html body #principalSection #containerLeft .video:before {
-  font: 1.5em FontAwesome;
+  font: 1.5em dashicons;
   position: absolute;
   text-align: center;
   line-height: 25px;
@@ -997,11 +1031,11 @@ html body #principalSection #containerLeft .video:after {
 }
 
 html body #principalSection #containerLeft .gallery:before {
-  content: '\f03e';
+  content: '\f161';
 }
 
 html body #principalSection #containerLeft .video:before {
-  content: '\f03d';
+  content: '\f126';
 }
 
 html body #principalSection #containerLeftPost .contentDiv {

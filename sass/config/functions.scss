@@ -144,6 +144,8 @@
             width: 100%;
             height: 100%;
 			overflow-x: auto;
+            display: flex;
+            flex-direction: column;
 
             #homeLinkActive {
                 &:before {
@@ -179,6 +181,7 @@
                 height: 60px;
                 width: 100%;
                 display: block;
+                order: 2;
 
                 a {
                     &:hover,
@@ -205,6 +208,7 @@
             .menuUl {
                 position: relative;
                 overflow-x: hidden;
+                order: 3;
 
                 > .current-menu-item,
                 > .current-menu-ancestor {
@@ -649,6 +653,17 @@
                             margin-left: 20px;
                         }
                     }
+                }
+            }
+            .searchForm {
+                height: 40px;
+                width: 100%;
+                order: 1;
+
+                .searchInput {
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
                 }
             }
         }

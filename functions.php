@@ -51,6 +51,14 @@ function register_my_nav_menu() {
 
 add_action('init', 'register_my_nav_menu');
 
+//CSS queue
+
+function pibsi_styles() {
+	wp_enqueue_style('dashicons');
+}
+
+add_action('wp_enqueue_scripts', 'pibsi_styles');
+
 //Javascript queue
 
 function pibsi_scripts() {
@@ -60,5 +68,13 @@ function pibsi_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'pibsi_scripts');
+
+//Remove default jquery
+
+function pibsi_deregister_script() {
+    wp_deregister_script('jquery');
+}
+
+add_action('wp_print_scripts', 'pibsi_deregister_script', 100);
 
 require get_template_directory() . '/inc/customizer.php';

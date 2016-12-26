@@ -63,6 +63,7 @@
                         'container' => false
                     )
                 );
+                get_search_form();
             ?>
         </nav>
     </div>
