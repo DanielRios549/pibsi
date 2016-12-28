@@ -68,6 +68,10 @@ html {
             display: block;
             cursor: pointer;
         }
+        input[type="text"] {
+            border: none;
+            outline: none;
+        }
 
         //Header style
         
@@ -102,7 +106,7 @@ html {
         //Body style
 
         #slider {
-            margin-top: 20px;
+            margin-top: 20px !important;
         }
         #principalSection {
             position: relative;
@@ -139,7 +143,36 @@ html {
                     margin-bottom: 10px;
                     padding-right: 10px;
                     width: 250px;
-                    
+
+                    &:before {
+                        content: '\f109';
+                        font: 1.5em dashicons;
+                        position: absolute;
+                        text-align: center;
+                        line-height: 25px;
+                        right: 20px;
+                        z-index: 98;
+                        width: 30px;
+                        height: 25px;
+                        
+                        @include css4 {
+                            background-color: var(--blue);
+                            color: var(--dark);
+                        };
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: 25px;
+                        right: 20px;
+                        z-index: 98;
+                        border-style: solid;
+                        border-width: 10px 15px 10px 15px;
+                        
+                        @include css4 {
+                            border-color: var(--blue) transparent transparent transparent;
+                        };
+                    }
                     .contentHeader {
                         .thumbnail {
                             position: relative;
@@ -195,7 +228,10 @@ html {
                     }
                 }
                 .gallery,
-                .video {
+                .video,.audio,
+                .link,.aside,
+                .image,.quote,
+                .status,.chat {
                     &:before {
                         font: 1.5em dashicons;
                         position: absolute;
@@ -235,12 +271,48 @@ html {
                         content: '\f126';
                     }
                 }
+                .audio {
+                    &:before {
+                        content: '\f127';
+                    }
+                }
+                > .link {
+                    &:before {
+                        content: '\f103';
+                    }
+                }
+                .aside {
+                    &:before {
+                        content: '\f123';
+                    }
+                }
+                .image {
+                    &:before {
+                        content: '\f128';
+                    }
+                }
+                .quote {
+                    &:before {
+                        content: '\f122';
+                    }
+                }
+                .status {
+                    &:before {
+                        content: '\f130';
+                    }
+                }
+                .chat {
+                    &:before {
+                        content: '\f125';
+                    }
+                }
             }
 
             //Content for post page
 
             #containerLeftPost {
                 .contentDiv {
+                    position: relative;
                     padding: 5px;
                     width: 100%;
 
@@ -266,6 +338,36 @@ html {
                         img {
                             width: 100%;
                             height: 100%;
+                        }
+                    }
+                }
+                .contentTags {
+                    min-height: 80px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: center;
+                    font: 2em Calibri, sans-serif;
+                    
+                    > a {
+                        border-radius: 4px;
+                        position: relative;
+                        width: auto;
+                        height: 100%;
+                        margin: 0 5px;
+                        padding: 0 10px;
+
+                        @include css4 {
+                            background: var(--gray);
+                            color: var(--darkGray);
+                        };
+
+                        @include transition(all, 200ms, linear, 1ms);
+
+                        &:hover {
+                            @include css4 {
+                                background: var(--darkGray);
+                                color: var(--white);
+                            };
                         }
                     }
                 }

@@ -42,11 +42,6 @@ For all Browser:
 }
 
 @font-face {
-  font-family: 'DashIcon';
-  src: url("../../../wp-includes/fonts/dashicons.ttf");
-}
-
-@font-face {
   font-family: 'Arial';
   src: url("font/arial.ttf");
 }
@@ -124,7 +119,6 @@ For all Browser:
     height: 100%;
   }
   #menuContainer .menuFixed {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 10%;
@@ -166,27 +160,25 @@ For all Browser:
   #menuContainer #menu #homeLinkActive {
     position: relative;
     border-radius: 3px;
-    float: left;
     height: 100%;
-    vertical-align: baseline;
+    width: 100%;
     width: 60px;
   }
   #menuContainer #menu #homeLink a,
   #menuContainer #menu #homeLinkActive a {
-    box-sizing: border-box;
     font: 1.5em Calibri, sans-serif;
     text-decoration: none;
     line-height: 40px;
     position: relative;
-    padding: 0 10px 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   #menuContainer #menu #homeLink a:after,
   #menuContainer #menu #homeLinkActive a:after {
     content: '\f015';
     font: 1.8em FontAwesome;
-    position: absolute;
-    top: 6px;
-    left: 18px;
   }
   #menuContainer #menu .menuUl {
     width: 70%;
@@ -196,10 +188,8 @@ For all Browser:
   }
   #menuContainer #menu .menuUl > .menu-item {
     border-radius: 3px;
-    float: left;
     margin-left: 20px;
     height: 100%;
-    list-style: none;
     background: var(--gray);
     -webkit-transition: all 200ms linear 0ms;
     -moz-transition: all 200ms linear 0ms;
@@ -207,10 +197,7 @@ For all Browser:
     transition: all 200ms linear 0ms;
   }
   #menuContainer #menu .menuUl > .menu-item > a {
-    box-sizing: border-box;
-    display: block;
     font: 1.5em Calibri, sans-serif;
-    text-decoration: none;
     line-height: 40px;
     position: relative;
     padding: 0 20px 0 20px;
@@ -418,14 +405,47 @@ For all Browser:
     text-decoration: underline;
   }
   #menuContainer #menu .searchForm {
-    display: block;
+    display: flex;
     width: 30%;
     height: 100%;
   }
   #menuContainer #menu .searchForm .searchInput {
+    border-radius: 3px 0 0 3px;
     position: relative;
-    width: 100%;
+    width: calc(100% - 40px);
     height: 100%;
+    padding: 5px;
+    border: 2px solid var(--gray);
+    -webkit-transition: border 200ms linear 1ms;
+    -moz-transition: border 200ms linear 1ms;
+    -ms-transition: border 200ms linear 1ms;
+    transition: border 200ms linear 1ms;
+  }
+  #menuContainer #menu .searchForm .searchInput:focus {
+    border: 2px solid var(--darkGray);
+  }
+  #menuContainer #menu .searchForm .searchInput:focus + .searchSubmit {
+    background: var(--darkGray);
+  }
+  #menuContainer #menu .searchForm .searchInput:focus + .searchSubmit:after {
+    color: var(--white);
+  }
+  #menuContainer #menu .searchForm .searchSubmit {
+    border-radius: 0 3px 3px 0;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: var(--gray);
+    -webkit-transition: background 200ms linear 1ms;
+    -moz-transition: background 200ms linear 1ms;
+    -ms-transition: background 200ms linear 1ms;
+    transition: background 200ms linear 1ms;
+  }
+  #menuContainer #menu .searchForm .searchSubmit:after {
+    content: '\f002';
+    font: 1.5em FontAwesome;
+    color: var(--darkGray);
   }
 }
 
@@ -905,6 +925,11 @@ html body label {
   cursor: pointer;
 }
 
+html body input[type="text"] {
+  border: none;
+  outline: none;
+}
+
 html body #cabecalho {
   position: relative;
   width: 100%;
@@ -927,7 +952,7 @@ html body #cabecalho #siteLogo #siteName a {
 }
 
 html body #slider {
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 
 html body #principalSection {
@@ -958,6 +983,31 @@ html body #principalSection #containerLeft .contentDiv {
   margin-bottom: 10px;
   padding-right: 10px;
   width: 250px;
+}
+
+html body #principalSection #containerLeft .contentDiv:before {
+  content: '\f109';
+  font: 1.5em dashicons;
+  position: absolute;
+  text-align: center;
+  line-height: 25px;
+  right: 20px;
+  z-index: 98;
+  width: 30px;
+  height: 25px;
+  background-color: var(--blue);
+  color: var(--dark);
+}
+
+html body #principalSection #containerLeft .contentDiv:after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  z-index: 98;
+  border-style: solid;
+  border-width: 10px 15px 10px 15px;
+  border-color: var(--blue) transparent transparent transparent;
 }
 
 html body #principalSection #containerLeft .contentDiv .contentHeader .thumbnail {
@@ -1005,7 +1055,10 @@ html body #principalSection #containerLeft .contentDiv .contentFooter .post-edit
 }
 
 html body #principalSection #containerLeft .gallery:before,
-html body #principalSection #containerLeft .video:before {
+html body #principalSection #containerLeft .video:before, html body #principalSection #containerLeft .audio:before,
+html body #principalSection #containerLeft .link:before, html body #principalSection #containerLeft .aside:before,
+html body #principalSection #containerLeft .image:before, html body #principalSection #containerLeft .quote:before,
+html body #principalSection #containerLeft .status:before, html body #principalSection #containerLeft .chat:before {
   font: 1.5em dashicons;
   position: absolute;
   text-align: center;
@@ -1019,7 +1072,10 @@ html body #principalSection #containerLeft .video:before {
 }
 
 html body #principalSection #containerLeft .gallery:after,
-html body #principalSection #containerLeft .video:after {
+html body #principalSection #containerLeft .video:after, html body #principalSection #containerLeft .audio:after,
+html body #principalSection #containerLeft .link:after, html body #principalSection #containerLeft .aside:after,
+html body #principalSection #containerLeft .image:after, html body #principalSection #containerLeft .quote:after,
+html body #principalSection #containerLeft .status:after, html body #principalSection #containerLeft .chat:after {
   content: '';
   position: absolute;
   top: 25px;
@@ -1038,7 +1094,36 @@ html body #principalSection #containerLeft .video:before {
   content: '\f126';
 }
 
+html body #principalSection #containerLeft .audio:before {
+  content: '\f127';
+}
+
+html body #principalSection #containerLeft > .link:before {
+  content: '\f103';
+}
+
+html body #principalSection #containerLeft .aside:before {
+  content: '\f123';
+}
+
+html body #principalSection #containerLeft .image:before {
+  content: '\f128';
+}
+
+html body #principalSection #containerLeft .quote:before {
+  content: '\f122';
+}
+
+html body #principalSection #containerLeft .status:before {
+  content: '\f130';
+}
+
+html body #principalSection #containerLeft .chat:before {
+  content: '\f125';
+}
+
 html body #principalSection #containerLeftPost .contentDiv {
+  position: relative;
   padding: 5px;
   width: 100%;
 }
@@ -1064,6 +1149,34 @@ html body #principalSection #containerLeftPost .contentDiv .thumbnail {
 html body #principalSection #containerLeftPost .contentDiv .thumbnail img {
   width: 100%;
   height: 100%;
+}
+
+html body #principalSection #containerLeftPost .contentTags {
+  min-height: 80px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  font: 2em Calibri, sans-serif;
+}
+
+html body #principalSection #containerLeftPost .contentTags > a {
+  border-radius: 4px;
+  position: relative;
+  width: auto;
+  height: 100%;
+  margin: 0 5px;
+  padding: 0 10px;
+  background: var(--gray);
+  color: var(--darkGray);
+  -webkit-transition: all 200ms linear 1ms;
+  -moz-transition: all 200ms linear 1ms;
+  -ms-transition: all 200ms linear 1ms;
+  transition: all 200ms linear 1ms;
+}
+
+html body #principalSection #containerLeftPost .contentTags > a:hover {
+  background: var(--darkGray);
+  color: var(--white);
 }
 
 html body #principalSection .sidebar {

@@ -1,10 +1,10 @@
-When clone the repository, do these actions:
 
-1 - Install gulp and bower.
-2 - Install gulp and bower dependencies.
-3 - Execute the gulp task called "bower" to get only files needed and send then to repository, only once
+When clone the repository, install gulp and his dependencies.
 
-After do these actions, you won't use any file on "bower_components" folder,
+You can install bower to update the components, if you do this,
+execute the gulp task called "bower" to get only files needed and send then to repository, only once
+
+You won't use any file on "bower_components" folder,
 because the gulp task called "bower" will copy only the files that the project needs.
 
 Use gulp task called "sass" to compile sass style to a css file.

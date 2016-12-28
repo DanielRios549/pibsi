@@ -56,7 +56,6 @@ $responsiveVariables: (
             height: 100%;
         }
         .menuFixed {
-            box-shadow: 0px 1px 1px rgba(0,0,0,.5);
             position: fixed;
             top: 0;
             left: 10%;
@@ -115,25 +114,23 @@ $responsiveVariables: (
             #homeLinkActive {
                 position: relative;
                 border-radius: 3px;
-                float: left;
                 height: 100%;
-                vertical-align: baseline;
+                width: 100%;
                 width: 60px;
 
                 a {
-                    box-sizing: border-box;
                     font: 1.5em Calibri, sans-serif;
                     text-decoration: none;
                     line-height: 40px;
                     position: relative;
-                    padding: 0 10px 0 5px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
 
                     &:after {
                         content: '\f015';
                         font: 1.8em FontAwesome;
-                        position: absolute;
-                        top: 6px;
-                        left: 18px;
                     }
                 }
             }
@@ -147,10 +144,8 @@ $responsiveVariables: (
                 };
                 > .menu-item {
                     border-radius: 3px;
-                    float: left;
                     margin-left: 20px;
                     height: 100%;
-                    list-style: none;
 
                     @include css4 {
                         background: var(--gray);
@@ -159,10 +154,7 @@ $responsiveVariables: (
                     @include transition(all, 200ms, linear, 0ms);
                     
                     > a {
-                        box-sizing: border-box;
-                        display: block;
                         font: 1.5em Calibri, sans-serif;
-                        text-decoration: none;
                         line-height: 40px;
                         position: relative;
                         padding: 0 20px 0 20px;
@@ -454,14 +446,60 @@ $responsiveVariables: (
                 }
             }
             .searchForm {
-                display: block;
+                display: flex;
                 width: 30%;
                 height: 100%;
 
                 .searchInput {
+                    border-radius: 3px 0 0 3px;
                     position: relative;
-                    width: 100%;
+                    width: calc(100% - 40px);
                     height: 100%;
+                    padding: 5px;
+
+                    @include css4 {
+                        border: 2px solid var(--gray);
+                    };
+
+                    @include transition(border, 200ms, linear, 1ms);
+
+                    &:focus {
+                        @include css4 {
+                            border: 2px solid var(--darkGray);
+                        };
+                        + .searchSubmit {
+                            @include css4 {
+                                background: var(--darkGray);
+                            };
+                            &:after {
+                                @include css4 {
+                                    color: var(--white);
+                                };
+                            }
+                        }
+                    }
+                }
+                .searchSubmit {
+                    border-radius: 0 3px 3px 0;
+                    position: relative;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+
+                    @include css4 {
+                        background: var(--gray);
+                    };
+
+                    @include transition(background, 200ms, linear, 1ms);
+                    
+                    &:after {
+                        content: '\f002';
+                        font: 1.5em FontAwesome;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                    }
                 }
             }
         }

@@ -17,6 +17,11 @@
         <div id="postContent">
             <?php the_content();?>
         </div>
+    </article>
+    <article class="contentDiv contentTags">
+        <?php the_tags('Tags: ', '', '');?>
+    </article>
+    <article class="contentDiv contentComments">
         <?php
             if (comments_open() || get_comments_number()) {
                 comments_template();
