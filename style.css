@@ -47,23 +47,13 @@ For all Browser:
 }
 
 @font-face {
-  font-family: 'Bubblegum';
-  src: url("font/bubblegum-sans-regular.otf");
-}
-
-@font-face {
   font-family: 'Calibri';
   src: url("font/calibri.ttf");
 }
 
 @font-face {
-  font-family: 'CalibriItatic';
+  font-family: 'CalibriItalic';
   src: url("font/calibrii.ttf");
-}
-
-@font-face {
-  font-family: 'Agency';
-  src: url("font/agencyb.ttf");
 }
 
 /* 
@@ -85,9 +75,8 @@ For all Browser:
 @media (min-width: 64.5727em) {
   :root {
     --bodyWidth: 80%;
-    --contentWidth: 80%;
     --contentHeight: 500px;
-    --sidebarWidth: 20%;
+    --sidebarWidth: 250px;
     --mainSection: row nowrap;
     --mainSectionContent: row wrap;
     --mainSectionContentAlign: flex-start;
@@ -248,19 +237,6 @@ For all Browser:
   #menuContainer #menu .menuUl > .menu-item:nth-child(5):hover > .sub-menu {
     background: var(--menu04) !important;
   }
-  #menuContainer #menu .menuUl > .menu-item:hover > .sub-menu {
-    height: 200px;
-    padding: 10px 0;
-  }
-  #menuContainer #menu .menuUl > .menu-item:hover > .sub-menu > .menu-item {
-    top: 0;
-  }
-  #menuContainer #menu .menuUl > .menu-item .openSubMenuInput,
-  #menuContainer #menu .menuUl > .menu-item .openSubMenu {
-    position: absolute;
-    top: -100%;
-    left: -100%;
-  }
   #menuContainer #menu .menuUl > .current-menu-item:nth-child(1),
   #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(1) {
     background: var(--menu01);
@@ -321,6 +297,16 @@ For all Browser:
   #menuContainer #menu .menuUl > .current-menu-ancestor:nth-child(5) > .sub-menu {
     background: var(--menu05) !important;
   }
+  #menuContainer #menu .menuUl > .menu-item-has-children:hover > .sub-menu {
+    height: 200px;
+    padding: 10px 0;
+  }
+  #menuContainer #menu .menuUl > .menu-item-has-children .openSubMenuInput,
+  #menuContainer #menu .menuUl > .menu-item-has-children .openSubMenu {
+    position: fixed;
+    top: -100%;
+    left: -100%;
+  }
   #menuContainer #menu .menuUl > .menu-item-has-children > a {
     padding-right: calc(20px + 1.8em);
     -webkit-transition: all 200ms linear 0ms;
@@ -342,24 +328,22 @@ For all Browser:
     transition: all 200ms linear 0ms;
   }
   #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu {
-    box-sizing: border-box;
     position: absolute;
-    left: -80px;
-    height: 0;
-    width: calc(100% + 80px);
+    left: 0;
+    height: 0%;
+    width: 100%;
     overflow: hidden;
+    display: flex;
     -webkit-transition: all 200ms linear 200ms;
     -moz-transition: all 200ms linear 200ms;
     -ms-transition: all 200ms linear 200ms;
     transition: all 200ms linear 200ms;
   }
   #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item {
-    box-sizing: border-box;
     position: relative;
-    float: left;
-    top: -20px;
+    top: 0;
     height: 100%;
-    width: 33.33%;
+    width: 100%;
     padding: 0 40px;
     border-right: 2px solid var(--darkGray);
     -webkit-transition: all 200ms linear 200ms;
@@ -367,14 +351,13 @@ For all Browser:
     -ms-transition: all 200ms linear 200ms;
     transition: all 200ms linear 200ms;
   }
-  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item:nth-of-type(3) {
-    border: none;
+  #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item:last-child {
+    border: none !important;
   }
   #menuContainer #menu .menuUl > .menu-item-has-children > .sub-menu > .menu-item > a {
     line-height: 30px;
     padding: 0;
     height: 30px;
-    box-sizing: border-box;
     font: 2.3em CalibriItatic, sans-serif;
     text-decoration: none;
     line-height: 40px;
@@ -783,7 +766,7 @@ For all Browser:
     min-height: 60px !important;
   }
   #menuContainer #menu .menuUl .menu-item-has-children .openSubMenuInput {
-    position: absolute;
+    position: fixed;
     top: -100%;
     left: -100%;
   }
@@ -855,7 +838,6 @@ For all Browser:
 @media (min-width: 40.375em) and (max-width: 64.5626em) {
   :root {
     --bodyWidth: 80%;
-    --contentWidth: 100%;
     --contentHeight: 200px;
     --sidebarWidth: 100%;
     --mainSection: column wrap;
@@ -871,7 +853,6 @@ For all Browser:
 @media (max-width: 40.375em) {
   :root {
     --bodyWidth: 100%;
-    --contentWidth: 100%;
     --contentHeight: 200px;
     --sidebarWidth: 100%;
     --mainSection: column wrap;
@@ -966,9 +947,9 @@ html body #principalSection {
 
 html body #principalSection #containerLeft,
 html body #principalSection #containerLeftPost {
+  width: 100%;
   display: flex;
   min-height: var(--contentHeight);
-  width: var(--contentWidth);
   flex-flow: var(--mainSectionContent);
   align-items: var(--mainSectionContentAlign);
   justify-content: var(--mainSectionContentAlign);
@@ -996,7 +977,7 @@ html body #principalSection #containerLeft .contentDiv:before {
   width: 30px;
   height: 25px;
   background-color: var(--blue);
-  color: var(--dark);
+  color: var(--darkGray);
 }
 
 html body #principalSection #containerLeft .contentDiv:after {
@@ -1068,7 +1049,7 @@ html body #principalSection #containerLeft .status:before, html body #principalS
   width: 30px;
   height: 25px;
   background-color: var(--blue);
-  color: var(--dark);
+  color: var(--darkGray);
 }
 
 html body #principalSection #containerLeft .gallery:after,
@@ -1124,7 +1105,6 @@ html body #principalSection #containerLeft .chat:before {
 
 html body #principalSection #containerLeftPost .contentDiv {
   position: relative;
-  padding: 5px;
   width: 100%;
 }
 
@@ -1181,11 +1161,67 @@ html body #principalSection #containerLeftPost .contentTags > a:hover {
 
 html body #principalSection .sidebar {
   border-radius: 5px;
-  top: 20px;
   right: 0;
-  height: 250px;
-  border: 4px solid var(--darkGray);
-  width: var(--sidebarWidth);
+  height: 100%;
+  min-height: 250px;
+  min-width: var(--sidebarWidth);
+}
+
+html body #principalSection .sidebar h2 {
+  font: 2.5em CalibriItalic, sans-serif;
+  height: 40px;
+  border-bottom: 2px solid Var(--darkGray);
+}
+
+html body #principalSection .sidebar .textwidget {
+  width: 100%;
+}
+
+html body #principalSection .sidebar .textwidget .event {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--darkGray);
+}
+
+html body #principalSection .sidebar .textwidget .event:last-child {
+  border: none;
+}
+
+html body #principalSection .sidebar .textwidget .event h3 {
+  position: relative;
+  width: 100%;
+  font: 1.8em Calibri, sans-serif;
+  height: 30px;
+}
+
+html body #principalSection .sidebar .textwidget .event span {
+  position: relative;
+  font: 1.5em Calibri, sans-serif;
+  height: 30px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+html body #principalSection .sidebar .textwidget .event span:before {
+  font: 1em FontAwesome;
+  margin-right: 5px;
+  position: relative;
+  color: var(--darkGray);
+}
+
+html body #principalSection .sidebar .textwidget .event span:nth-of-type(1):before {
+  content: '\f073';
+}
+
+html body #principalSection .sidebar .textwidget .event span:nth-of-type(2):before {
+  content: '\f124';
+}
+
+html body #principalSection .sidebar .textwidget .event span:nth-of-type(3):before {
+  content: '\f017';
 }
 
 html body #rodape {

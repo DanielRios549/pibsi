@@ -121,11 +121,11 @@ html {
 
             #containerLeft,
             #containerLeftPost {
+                width: 100%;
                 display: flex;
 
                 @include css4 {
                     min-height: var(--contentHeight);
-                    width: var(--contentWidth);
                     flex-flow: var(--mainSectionContent);
                     align-items: var(--mainSectionContentAlign);
                     justify-content: var(--mainSectionContentAlign);
@@ -157,7 +157,7 @@ html {
                         
                         @include css4 {
                             background-color: var(--blue);
-                            color: var(--dark);
+                            color: var(--darkGray);
                         };
                     }
                     &:after {
@@ -244,7 +244,7 @@ html {
                         
                         @include css4 {
                             background-color: var(--blue);
-                            color: var(--dark);
+                            color: var(--darkGray);
                         };
                     }
                     &:after {
@@ -313,7 +313,6 @@ html {
             #containerLeftPost {
                 .contentDiv {
                     position: relative;
-                    padding: 5px;
                     width: 100%;
 
                     .title {
@@ -374,14 +373,78 @@ html {
             }
             .sidebar {
                 border-radius: 5px;
-                top: 20px;
                 right: 0;
-                height: 250px;
+                height: 100%;
+                min-height: 250px;
                 
                 @include css4 {
-                    border: 4px solid var(--darkGray);
-                    width: var(--sidebarWidth);
+                    min-width: var(--sidebarWidth);
                 };
+                h2 {
+                    font: 2.5em CalibriItalic, sans-serif;
+                    height: 40px;
+
+                    @include css4 {
+                        border-bottom: 2px solid Var(--darkGray);
+                    };
+                }
+                .textwidget {
+                    width: 100%;
+
+                    .event {
+                        display: flex;
+                        flex-flow: row wrap;
+                        margin: 10px 0;
+                        padding-bottom: 10px;
+
+                        @include css4 {
+                            border-bottom: 1px dashed var(--darkGray);
+                        };
+                        &:last-child {
+                            border: none;
+                        }
+                        h3 {
+                            position: relative;
+                            width: 100%;
+                            font: 1.8em Calibri, sans-serif;
+                            height: 30px;
+                        }
+                        span {
+                            position: relative;
+                            font: 1.5em Calibri, sans-serif;
+                            height: 30px;
+                            margin-right: 5px;
+                            display: flex;
+                            align-items: center;
+
+                            &:before {
+                                font: 1em FontAwesome;
+                                margin-right: 5px;
+                                position: relative;
+                                
+
+                                @include css4 {
+                                    color: var(--darkGray);
+                                };
+                            }
+                            &:nth-of-type(1) {
+                                &:before {
+                                    content: '\f073';
+                                }
+                            }
+                            &:nth-of-type(2) {
+                                &:before {
+                                    content: '\f124';
+                                }
+                            }
+                            &:nth-of-type(3) {
+                                &:before {
+                                    content: '\f017';
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 

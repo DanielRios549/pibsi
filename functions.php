@@ -38,8 +38,19 @@ add_image_size('1000', '350');
 
 //Theme functions
 
-if(function_exists('register_sidebar')) {
+function pibsi_event_widget() {
+    if(!function_exists('widgetopts_install')) {
+        add_option('Event', 'activate');
+    }
+}
+
+add_action('init', 'pibsi_event_widget');
+
+function pibsi_register_sidebar() {
     register_sidebar(array(
+		'name' => __('Programação', 'pibsi'),
+        'id' => 'sidebar-program',
+		'description' => __('Mostra a programação', 'pibsi'),
         'before_widget' => '<section class="widget">',
         'after_widget' => '</section>',
         'before_title' => '<h2>',
@@ -47,7 +58,9 @@ if(function_exists('register_sidebar')) {
     ));
 }
 
-function register_my_nav_menu() {
+add_action('widgets_init', 'pibsi_register_sidebar');
+
+function pibsi_register_nav_menu() {
     register_nav_menus(
         array(
             'primary' => __('Menu Principal', 'pibsi'),
@@ -56,7 +69,7 @@ function register_my_nav_menu() {
     );
 }
 
-add_action('init', 'register_my_nav_menu');
+add_action('init', 'pibsi_register_nav_menu');
 
 //CSS queue
 

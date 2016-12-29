@@ -1,5 +1,5 @@
-<aside class="sidebar">
-    <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar()) {?>
-
-    <?php }?>
-</aside>
+<?php if(is_active_sidebar('sidebar-program')) {?>
+    <aside class="sidebar">
+        <?php dynamic_sidebar('sidebar-program');?>
+    </aside>
+<?php }?>
