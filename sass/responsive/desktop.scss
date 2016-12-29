@@ -2,9 +2,8 @@
 
 $responsiveVariables: (
     --bodyWidth: 80%,
-    --contentWidth: 80%,
     --contentHeight: 500px,
-    --sidebarWidth: 20%,
+    --sidebarWidth: 250px,
     --mainSection: row nowrap,
     --mainSectionContent: row wrap,
     --mainSectionContentAlign: flex-start,
@@ -152,7 +151,7 @@ $responsiveVariables: (
                     };
 
                     @include transition(all, 200ms, linear, 0ms);
-                    
+
                     > a {
                         font: 1.5em Calibri, sans-serif;
                         line-height: 40px;
@@ -249,22 +248,6 @@ $responsiveVariables: (
                             }
                         }
                     }
-                    &:hover {
-                        > .sub-menu {
-                            height: 200px;
-                            padding: 10px 0;
-
-                            > .menu-item {
-                                top: 0;
-                            }
-                        }
-                    }
-                    .openSubMenuInput,
-                    .openSubMenu {
-                        position: absolute;
-                        top: -100%;
-                        left: -100%;
-                    }
                 }
                 > .current-menu-item,
                 > .current-menu-ancestor {
@@ -345,6 +328,18 @@ $responsiveVariables: (
                     }
                 }
                 > .menu-item-has-children {
+                    &:hover {
+                        > .sub-menu {
+                            height: 200px;
+                            padding: 10px 0;
+                        }
+                    }
+                    .openSubMenuInput,
+                    .openSubMenu {
+                        position: fixed;
+                        top: -100%;
+                        left: -100%;
+                    }
                     > a {
                         padding-right: calc(20px + 1.8em);
 
@@ -366,22 +361,20 @@ $responsiveVariables: (
                         }
                     }
                     > .sub-menu {
-                        box-sizing: border-box;
                         position: absolute;
-                        left: -80px;
-                        height: 0;
-                        width: calc(100% + 80px);
+                        left: 0;
+                        height: 0%;
+                        width: 100%;
                         overflow: hidden;
+                        display: flex;
 
                         @include transition(all, 200ms, linear, 200ms);
 
                         > .menu-item {
-                            box-sizing: border-box;
                             position: relative;
-                            float: left;
-                            top: -20px;
+                            top: 0;
                             height: 100%;
-                            width: 33.33%;
+                            width: 100%;
                             padding: 0 40px;
 
                             @include css4 {
@@ -390,14 +383,13 @@ $responsiveVariables: (
 
                             @include transition(all, 200ms, linear, 200ms);
 
-                            &:nth-of-type(3) {
-                                border: none;
+                            &:last-child {
+                                border: none !important;
                             }
                             > a {
                                 line-height: 30px;
                                 padding: 0;
                                 height: 30px;
-                                box-sizing: border-box;
                                 font: 2.3em CalibriItatic, sans-serif;
                                 text-decoration: none;
                                 line-height: 40px;
