@@ -7,6 +7,15 @@
     * @since PIBSI 1.0
 */
 
+//Remove when site is complete
+
+function login_check() {
+	if(!is_user_logged_in()) {
+        wp_redirect(get_bloginfo('siteurl').'/wp-login.php');
+    }
+}
+
+add_action('get_header', 'login_check');
 
 //Theme support
 
@@ -82,19 +91,20 @@ add_action('wp_enqueue_scripts', 'pibsi_styles');
 //Javascript queue
 
 function pibsi_scripts() {
-    wp_enqueue_script('pibsi-jquery', get_template_directory_uri() . '/js/lib/jquery.js', array(), '2.1.4', false);
     wp_enqueue_script('pibsi-function', get_template_directory_uri() . '/js/functions.js', array(), '1.0', true);
     wp_enqueue_script('pibsi-script', get_template_directory_uri() . '/js/script.js', array(), '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'pibsi_scripts');
 
-//Remove default jquery
+//Change jquery to bower
 
-function pibsi_deregister_script() {
+function pibsi_change_jquery() {
     wp_deregister_script('jquery');
+    wp_register_script('jquery', get_template_directory_uri() . '/js/lib/jquery.js', false, '2.1.4');
+    wp_enqueue_script('jquery');
 }
 
-add_action('wp_print_scripts', 'pibsi_deregister_script', 100);
+add_action('init', 'pibsi_change_jquery');
 
 require get_template_directory() . '/inc/customizer.php';

@@ -3,7 +3,7 @@
  */
 
 (function($) {
-	api = wp.customize;
+	var api = wp.customize;
 
 	//function to set CSS variables
 
@@ -54,7 +54,7 @@
 
 	//Menu 04
 
-	api('principal_menu_color_2', function(value) {
+	api('principal_menu_color_4', function(value) {
 		value.bind(function(to) {
 			setVariable('--menu04', to);
 		});
