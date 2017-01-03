@@ -25,9 +25,9 @@ gulp.task('bower', function() {
 //Sass outputs: expanded, compact, compressed
 
 gulp.task('sass', function() {
-    return gulp.src('sass/style.scss')
-    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-    .pipe(gulp.dest(''));
+    return gulp.src('css/sass/style.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('css/'));
 });
 
 //Watch all files including all that are imported, than complile using 'sass' task
