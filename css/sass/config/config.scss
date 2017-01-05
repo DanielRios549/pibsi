@@ -1,18 +1,24 @@
-//it is nessesary to define the variables in sass map instead of :root, for compatibility reasons.
+//New W3C standard
 
+@-ms-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
+
+//it is nessesary to define the variables in sass map instead of :root, for compatibility reasons.
 
 $baseUrl: 'http://127.0.0.1/Andre/PIBSI/';
 $templateUrl: $baseUrl + 'wp-content/themes/pibsi/';
 
-//Media queries
-
 //75em 61.5625em 56.875em 48.9375em 44.375em
 
-$desktopLarge: 74.138;
-$desktop: 64.5727;
-$tablet: 64.5626;
-$mobile: 40.375;
-$unity: 'em';
+$desktopLarge: 1186;
+$tablet: 1032;
+$mobile: 775;
+$mobileSmall: 599;
+$unity: 'px';
 
 $variables: (
   --rootColor: #f1f1f1,

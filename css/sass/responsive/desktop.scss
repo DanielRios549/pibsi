@@ -7,6 +7,7 @@ $responsiveVariables: (
     --mainSection: row nowrap,
     --mainSectionContent: row wrap,
     --mainSectionContentAlign: flex-start,
+    --mainSectionContentWidth: 250px,
     --socialMenuPosition: flex-start,
     --copyPosition: flex-end,
     --socialMenuDirection: row,
@@ -15,17 +16,16 @@ $responsiveVariables: (
 );
 
 @media (min-width: $desktopLarge + $unity) {
-    body {
+    :root {
+        --bodyWidth: 1000px !important;
+    }
+    .menuFixed {
         width: 1000px !important;
-        
-        .menuFixed {
-            width: 1000px !important;
-            left: auto !important;
-        }
+        left: auto !important;
     }
 }
 
-@media (min-width: $desktop + $unity) {
+@media (min-width: $tablet + 1 + $unity) {
     @if($css4 == true) {
         :root {
             @each $variable, $value in $responsiveVariables {

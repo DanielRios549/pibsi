@@ -5,8 +5,9 @@ $responsiveVariables: (
     --contentHeight: 200px,
     --sidebarWidth: 100%,
     --mainSection: column wrap,
-    --mainSectionContent: column wrap,
+    --mainSectionContent: row wrap,
     --mainSectionContentAlign: center,
+    --mainSectionContentWidth: 260px,
     --socialMenuPosition: center,
     --copyPosition: center,
     --socialMenuDirection: column,
@@ -14,7 +15,6 @@ $responsiveVariables: (
 );
 
 //Menu is already defined at tablet file
-
 @media (max-width: $mobile + $unity) {
     @if($css4 == true) {
         :root {
@@ -22,5 +22,11 @@ $responsiveVariables: (
                 #{$variable}: $value;
             }
         }
+    }
+}
+@media (max-width: $mobileSmall + $unity) {
+    :root {
+        --mainSectionContent: column wrap !important;
+        --mainSectionContentWidth: 300px !important;
     }
 }

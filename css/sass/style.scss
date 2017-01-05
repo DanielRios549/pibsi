@@ -134,8 +134,10 @@ html {
                     position: relative;
                     margin-bottom: 10px;
                     padding-right: 10px;
-                    width: 250px;
 
+                    @include css4 {
+                        width: var(--mainSectionContentWidth);
+                    };
                     &:before {
                         content: '\f109';
                         font: 1.5em dashicons;
