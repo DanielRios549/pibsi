@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 $css4: true;
-$compatibility: false;
+$compatibility: true;
 
 //CSS universal variables
 
@@ -127,13 +127,32 @@ html {
             //Content for home
 
             #containerLeft {
+                min-height: 400px;
                 .searchResults {
+                    position: relative;
+                    height: 30px;
                     width: 100%;
+
+                    .searchQuery {
+                        font: 2em Calibri, sans-serif;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                    }
+                }
+                .noContent {
+                    > header > h1 {
+                        font: 2em Calibri, sans-serif;
+
+                        @include css4 {
+                            color: var(--darkGray);
+                        };
+                    }
                 }
                 .contentDiv {
                     position: relative;
-                    margin-bottom: 10px;
-                    padding-right: 10px;
+                    margin: 0 10px 10px 0;
 
                     @include css4 {
                         width: var(--mainSectionContentWidth);
@@ -428,12 +447,12 @@ html {
                             }
                             &:nth-of-type(2) {
                                 &:before {
-                                    content: '\f124';
+                                    content: '\f017';
                                 }
                             }
                             &:nth-of-type(3) {
                                 &:before {
-                                    content: '\f017';
+                                    content: '\f124';
                                 }
                             }
                         }

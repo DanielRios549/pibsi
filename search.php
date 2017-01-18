@@ -1,15 +1,17 @@
 <?php get_header();?>
 	<main id="principalSection">
 		<section id="containerLeft">
-			<header class="searchResults">
-				<h1 class="searchTitle">
-					<?php printf(__('Resultados da busca para: %s', 'pibsi'), '<span>' . esc_html(get_search_query()) . '</span>'); ?>
-				</h1>
-			</header>
 		<?php
 			query_posts($query_string . "&order=ASC");
 
 			if(have_posts()) {
+		?>
+		<div class="searchResults">
+			<span class="searchQuery">
+				<?php printf(__('Resultados da busca para: %s', 'pibsi'), '<span>' . esc_html(get_search_query()) . '</span>'); ?>
+			</span>
+		</div>
+		<?php
 				while(have_posts()) {
 					the_post();
 					

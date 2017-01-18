@@ -8,7 +8,7 @@
  */
 ?>
 
-<article class="no-results not-found noneContent">
+<article class="noContent">
 	<header class="page-header">
 		<h1 class="page-title"><?php _e('Nada encontrado', 'pibsi');?></h1>
 	</header>
@@ -20,7 +20,7 @@
 
 		<?php } elseif (is_search()) {?>
 
-			<div><p><?php _e( 'Desculpe, não encontramos nada com a palavra desejada, tente pesquisar novamente.', 'pibsi');?></p><div>
+			<p><?php _e( 'Desculpe, não encontramos nada com a palavra desejada, tente pesquisar novamente.', 'pibsi');?></p>
 
         <?php } else {?>
 

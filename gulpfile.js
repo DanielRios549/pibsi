@@ -5,6 +5,14 @@ var sass = require('gulp-sass');
 var watch = require('watch');
 var rename = require('gulp-rename');
 
+//Run this task before the commit and mainly, before the push
+
+gulp.task('prod', function() {
+    return gulp.src('css/sass/style.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('css/'));
+});
+
 //Task to copy only components the project needs
 
 gulp.task('bower', function() {
@@ -26,7 +34,7 @@ gulp.task('bower', function() {
 
 gulp.task('sass', function() {
     return gulp.src('css/sass/style.scss')
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(gulp.dest('css/'));
 });
 
