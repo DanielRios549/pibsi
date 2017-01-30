@@ -41,7 +41,7 @@ gulp.task('sass', function() {
 //Watch all files including all that are imported, than complile using 'sass' task
 
 gulp.task('watch', function() {
-    gulp.watch('./css/sass/**/*.scss', ['sass']);
+    gulp.watch('css/sass/**/*.scss', ['sass']);
 });
 
 //execute the task inside the array only with 'gulp' command
