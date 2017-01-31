@@ -142,12 +142,15 @@ html {
                     }
                 }
                 .noContent {
-                    > header > h1 {
-                        font: 2em Calibri, sans-serif;
-
-                        @include css4 {
-                            color: var(--darkGray);
-                        };
+                    header h1,
+                    div p {
+                        font-family: Calibri, sans-serif;
+                    }
+                    header h1 {
+                        font-size: 2em;
+                    }
+                    div p {
+                        font-size: 1.6em;
                     }
                 }
                 .contentDiv {
