@@ -1,16 +1,23 @@
 
-When clone the repository, install gulp and his dependencies.
+Quando clonar o repositório, instale as dempendências do npm e gulp,
+depois estará disponível os comandos gulp e bower, mas não se esqueça de instalá-los globalmente também.
 
-You can install bower to update the components, if you do this,
-execute the gulp task called "bower" to get only files needed and send then to repository, only once
+Intalar as dependências do bower é opcional, faça isso apenas se precisar atualizar os componentes,
+se fizer isso, execute a tarefa "bower" para atualizar nos diretórios versionados,
+você não usará nenhum arquivo da pasta "bower_components", a tarefa irá copiar os arquivos usados para as pasta deles.
 
-You won't use any file on "bower_components" folder,
-because the gulp task called "bower" will copy only the files that the project needs.
+Gulp task called "sass" compiles sass style to a css file.
+Gulp task called "watch" watched sass files and compile then after a save.
+Gulp task called "default" makes two task above.
+Gulp tasks called "watch" and "default" keep running in background.
 
-Use gulp task called "sass" to compile sass style to a css file.
-Use gulp task called "watch" to watch sass files and compile then after a save.
-Use gulp task called "default" to make two task above
+A tarefa "sass" compila o SASS, vc pode usar um formato de saída diferente.
+A tarefa "watch" compila o SASS depois de uma modificação, use ela se não quiser ir no terminal sempre que modificar o SASS.
+A tarefa "prod" compila o SASS pronto para produção.
+A tarefa "default" faz as duas coisas anteriores, futuramente será adicionada mais coisas.
 
-Use gulp tasks called "watch" and "defeult" only once, they will keep running in background.
+O arquivo "git-ftp-ignore" possue os arquivos e pastas ignorados na hora de enviar para o servidor principal,
+mas não ignorados pelo git, porém, arquivos e apstas ignorados pelo git são ignorados pelo git ftp também.
 
-"nodes_modules" and "bowser_components" folders won't be sent to repository.
+Para usar o git ftp é necessário instala-lo, e ter as credenciais de acesso ao servidor,
+se você não tem, faça o push apenas para o repositório e fale com um superior para ele ficar sabendo da modificação.
